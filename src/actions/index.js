@@ -1,69 +1,95 @@
-export function loadMyMovieList() {
-  return function (dispatch) {
-    dispatch({
-      type: "LOAD_MY_MOVIE_LIST"
-    });
+export function getRecipes(searchTerm) {
   
-    fetch("/movies")
-      .then( (response) => {
-        return response.json();
-      }).then((movies) => {
-        dispatch(myMovieListLoaded(movies));
-      });
-  };
-}
-
-export function myMovieListLoaded(movies) {
-  return {
-    type: "MY_MOVIE_LIST_LOADED",
-    value: movies
-  };
-}
-
-export function loadSearch(searchTerm) {
+  let ings = searchTerm;
+  let baseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=";
+  let endUrl = "&limitLicense=false&number=10&ranking=1";
+  
   return function (dispatch) {
     dispatch({
-      type: "LOAD_SEARCH"
+      type: "GET_RECIPES"
     });
-    fetch("https://api.themoviedb.org/3/search/multi?query=" + searchTerm + "&api_key=3feb152dee8cdcf2c8fabece6498529a")
+    fetch(baseUrl + ings + endUrl)
       .then( (response) => {
         return response.json();
-      }).then((movies) => {
-        dispatch(searchLoaded(movies));
+      }).then((recipes) => {
+        dispatch(searchLoaded(recipes));
       });
   };
 }
 
-export function searchLoaded(movies) {
+export function searchLoaded(recipes) {
   return {
     type: "SEARCH_RESULTS_LOADED",
-    value: movies.results
+    value: recipes
   };
 }
 
-export function saveMyMovie(movie) {
-  return function (dispatch) {
-    dispatch({
-      type: "SAVE_MY_MOVIE"
-    });
-
-    fetch("/movies", {
-      method: "POST",
-      headers: {"Content-Type": "application/JSON"},
-      body: JSON.stringify(movie)
-    }).then(() => dispatch(loadMyMovieList()));
+// export function loadMyMovieList() {
+//   return function (dispatch) {
+//     dispatch({
+//       type: "LOAD_MY_MOVIE_LIST"
+//     });
   
-  };
-}
+//     fetch("/movies")
+//       .then( (response) => {
+//         return response.json();
+//       }).then((movies) => {
+//         dispatch(myMovieListLoaded(movies));
+//       });
+//   };
+// }
 
-export function removeMyMovie(id) {
-  return function (dispatch) {
-    dispatch({
-      type: "REMOVE_MY_MOVIE"
-    })
-    fetch("/movies/" + id, {
-      method: "delete"
-    }).then(() => dispatch(loadMyMovieList()));
-  };
+// export function myMovieListLoaded(movies) {
+//   return {
+//     type: "MY_MOVIE_LIST_LOADED",
+//     value: movies
+//   };
+// }
+// getRecipes() {
+  
+//   fetch(, {
+//     method: "GET",
+//     headers: {
+//       Accept: "application/json",
+//       "X-Mashape-Key": "YmReyxlVdYmshU5Dlyo9XYbBPZtep1KJPXujsnt4Hiueq8H23o"
+//     }
+//   }).then(response => {
+//     console.log(response);
+//     return response.json().then(data => {
+//       console.log(data);
+//       // let recipes1 = data.slice(0,5)
+//       this.setState({
+//         recipes1: [data.slice(0, 5)],
+//         recipes2: [data.slice(5)]
+//       });
+//       console.log(this.state.recipes1);
+//     });
+//   });
+// }
+
+// export function saveMyMovie(movie) {
+//   return function (dispatch) {
+//     dispatch({
+//       type: "SAVE_MY_MOVIE"
+//     });
+
+//     fetch("/movies", {
+//       method: "POST",
+//       headers: {"Content-Type": "application/JSON"},
+//       body: JSON.stringify(movie)
+//     }).then(() => dispatch(loadMyMovieList()));
+  
+//   };
+// }
+
+// export function removeMyMovie(id) {
+//   return function (dispatch) {
+//     dispatch({
+//       type: "REMOVE_MY_MOVIE"
+//     })
+//     fetch("/movies/" + id, {
+//       method: "delete"
+//     }).then(() => dispatch(loadMyMovieList()));
+//   };
     
-}
+// }

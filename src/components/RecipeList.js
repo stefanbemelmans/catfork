@@ -3,13 +3,13 @@ import React, {Component} from "react";
 import React from "react";
 import Recipe from "./Recipe";
 
-function TitleList(props) {
+function RecipeList(props) {
   let titles = "";
-  if (props.movies) {
-    titles = props.movies.map(function (title, i) {
+  if (props.recipes) {
+    recipes = props.recipes.map(function (rec, i) {
       if (i < 5) {
         return (
-          <Item key={title.id} movie={title} />
+          <Recipe key={rec.id} rec={rec} />
         );  
       } 
       return (<div key={title.id} />);
@@ -18,12 +18,11 @@ function TitleList(props) {
   
   return (
     <div 
-      className="TitleList" 
-      data-loaded={props.movies && props.movies.length > 0}>
+      className="">
       <div className="Title">
         <h1>{props.title}</h1>
         <div className="titles-wrapper">
-          {titles}
+          {recipes}
         </div>
       </div>
     </div>

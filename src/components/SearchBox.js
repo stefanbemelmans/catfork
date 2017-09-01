@@ -52,31 +52,7 @@ export class SearchBox extends React.Component {
   }
   
   //"https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=apples%2Cflour%2Csugar&limitLicense=false&number=5&ranking=1"
-  getRecipes() {
-    let ing = this.state.ing;
-    let baseUrl =
-      "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=";
-    //increasing recipe return count to render them in 5 ct collections
-    let endUrl = "&limitLicense=false&number=10&ranking=1";
-    fetch(baseUrl + ing + endUrl, {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        "X-Mashape-Key": "YmReyxlVdYmshU5Dlyo9XYbBPZtep1KJPXujsnt4Hiueq8H23o"
-      }
-    }).then(response => {
-      console.log(response);
-      return response.json().then(data => {
-        console.log(data);
-        // let recipes1 = data.slice(0,5)
-        this.setState({
-          recipes1: [data.slice(0, 5)],
-          recipes2: [data.slice(5)]
-        });
-        console.log(this.state.recipes1);
-      });
-    });
-  }
+  
 
   renderInstructions(instructions) {
     let ingList = instructions.recIng.map(ing =>
