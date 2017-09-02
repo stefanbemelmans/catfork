@@ -1,8 +1,15 @@
+ //let recBaseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/{id}/information?includeNutrition=false";
+ let baseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=";
+ let endUrl = "&limitLicense=false&number=10&ranking=1";
+
+ let recBaseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/";
+ let recEndUrl = "/information?includeNutrition=false";
+
+
 export function getRecipes(searchTerm) {
   
   let ings = searchTerm;
-  let baseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=";
-  let endUrl = "&limitLicense=false&number=10&ranking=1";
+ 
   
   return function (dispatch) {
     dispatch({
@@ -24,20 +31,47 @@ export function searchLoaded(recipes) {
   };
 }
 
-// export function loadMyMovieList() {
-//   return function (dispatch) {
-//     dispatch({
-//       type: "LOAD_MY_MOVIE_LIST"
-//     });
+export function getIndRecipe(id) {
+  return function (dispatch) {
+    dispatch({
+      type: "GET_IND_RECIPE"
+    });
   
-//     fetch("/movies")
-//       .then( (response) => {
-//         return response.json();
-//       }).then((movies) => {
-//         dispatch(myMovieListLoaded(movies));
-//       });
-//   };
-// }
+    fetch("/movies")
+      .then( (response) => {
+        return response.json();
+      }).then((movies) => {
+        dispatch(indRecLoaded(movies));
+      });
+  };
+}
+getIndRec(id) {
+ 
+  fetch(recBaseUrl + recId + recEndUrl, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "X-Mashape-Key": "YmReyxlVdYmshU5Dlyo9XYbBPZtep1KJPXujsnt4Hiueq8H23o"
+    }
+  }).then(response => {
+    console.log(response);
+    return response.json().then(data => {
+      var recIng = data.extendedIngredients.map(ing => ing.originalString);
+      var instructions = data.instructions;
+      this.setState({
+        instructions: {
+          ...this.state.instructions,
+          [id]: { recIng, instructions }
+        }
+      });
+      console.log(data);
+    });
+  });
+}
+
+
+
+
 
 // export function myMovieListLoaded(movies) {
 //   return {

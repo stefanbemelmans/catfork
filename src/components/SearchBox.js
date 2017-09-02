@@ -48,7 +48,7 @@ export class SearchBox extends React.Component {
     // this.state.ing = this.state.ingredients.map(x => x.trim());
     // console.log(this.state.ingredients[0]);
     console.log(this.state.ing);
-    this.getRecipes();
+    this.getRecipes(searchTerm);
   }
   
   //"https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=apples%2Cflour%2Csugar&limitLicense=false&number=5&ranking=1"
