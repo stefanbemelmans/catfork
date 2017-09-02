@@ -2,7 +2,7 @@ export default function Recipe (props) {
 
     return (
       <div className="recipe" key={props.rec.id}>
-        <button onClick={() => this.getIndRec(rec.id)}>
+        <button onClick={() => props.getIndRec(rec.id)}>
           {" "}{props.rec.title}{" "}
         </button>
         <img
