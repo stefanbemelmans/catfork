@@ -7,5 +7,6 @@ import { Provider } from "react-redux";
 // import users from "./users";
 import store from "./store";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Provider store={store}><App /></Provider>,
+   document.getElementById('root'));
 

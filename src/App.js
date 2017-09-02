@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import catForkImg from "./images/CatForkTitleSmall";
+import catForkImg from "./images/CatForkTitleSmall.png";
 import CatPic from "./components/CatPicComponent.js";
 import "./App.css";
-import SearchBox from "./components/SearchBox";
-import RecipeList from "./components/RecipeList";
+import SearchBox from "./containers/SearchBoxContainer";
+import RecipeList from "./containers/RecipeListContainer";
 
 class App extends Component {
   render() {

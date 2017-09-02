@@ -15,7 +15,12 @@ export function getRecipes(searchTerm) {
     dispatch({
       type: "GET_RECIPES"
     });
-    fetch(baseUrl + ings + endUrl)
+    fetch(baseUrl + ings + endUrl, {
+      headers: {
+              "X-Mashape-Key": "YmReyxlVdYmshU5Dlyo9XYbBPZtep1KJPXujsnt4Hiueq8H23o"
+            }
+
+    })
       .then( (response) => {
         return response.json();
       }).then((recipes) => {
@@ -46,6 +51,12 @@ export function getIndRecipe(id) {
   }
 };
 
+export function indRecLoaded(recipe) {
+  return {
+    type: "IND_RECIPE_LOADED",
+    value: recipe
+  };
+}
 // export function getIndRec(id) {
  
 //   fetch(recBaseUrl + recId + recEndUrl, {

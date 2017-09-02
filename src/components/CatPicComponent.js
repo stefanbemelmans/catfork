@@ -27,7 +27,7 @@
   
     render() {
       return (
-        <div col-12 col-sm-10 col-md-6>
+        <div Col-xs={10} Col-sm={8} Col-md={6}>
           <a href="https://thecatapi.com">
             <img className="catPic" src={this.state.kitty} alt="logo" />
           </a>

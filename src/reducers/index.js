@@ -7,6 +7,12 @@ function searchResults(state = [], action) {
   return state;
 }
 
+function indRecipeLoaded(state = [], action) {
+  if (action.type === "IND_RECIPE_LOADED") {
+    return action.value;
+  }
+  return state;
+}
 // function myMovieList(state = [], action) {
 //   if (action.type === "MY_MOVIE_LIST_LOADED") {
 //     return action.value;
@@ -20,5 +26,5 @@ function searchResults(state = [], action) {
 //     return state;
 //   }
 // }
-const rootReducer = combineReducers({searchResults});
+const rootReducer = combineReducers({searchResults, indRecipeLoaded});
 export default rootReducer;

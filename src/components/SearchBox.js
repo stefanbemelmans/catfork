@@ -15,8 +15,9 @@ class SearchBox extends Component {
         <input onChange={(e) => {this.setState({searchTerm:e.target.value});}}
           onKeyUp={
             (e) => {
+              console.log(e.key);
               /* this is so th search will only be done on enter key */
-              if (this.props.getRecipes && e.key === "Enter" && this.state.searchTerm) {
+              if (e.key === "Enter" && this.state.searchTerm) {
                 this.props.getRecipes(this.state.searchTerm);
               }
             }
