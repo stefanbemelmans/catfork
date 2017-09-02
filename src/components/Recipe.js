@@ -12,9 +12,9 @@ export default function Recipe (props) {
           src={props.rec.image}
           alt="../images/CatforkTitleSmall.png"
         />
-        {this.state.instructions[props.rec.id]
+        {/* {this.state.instructions[props.rec.id]
           ? this.renderInstructions(this.state.instructions[props.rec.id])
-          : ""}
+          : ""} */}
       </div>
     );
   }

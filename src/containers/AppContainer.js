@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 
 function mapStateToProps(state) {
   return {
-    searchResults: state.searchResults
+    recipes: state.searchResults
    // myRecipeList: state.myRecipeList
   };
 }

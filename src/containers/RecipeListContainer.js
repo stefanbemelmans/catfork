@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
-import {getIndRecipe} from "../actions";
-import SearchBox from "../components/SearchBox";
+import {getIndRecipe, searchLoaded} from "../actions";
+import RecipeList from "../components/RecipeList";
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -12,9 +12,8 @@ function mapDispatchToProps(dispatch) {
 }
  
 function mapStateToProps(state) {
-
   return {
-  recipes: state.recipes  
+  recipes: state.searchResults  
   }
 }
-export default connect(null,mapDispatchToProps)(SearchBox);
+export default connect(mapStateToProps,mapDispatchToProps)(RecipeList);

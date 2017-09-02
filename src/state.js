@@ -1,5 +1,5 @@
 export default {
-  recipes: [],
-  myRecipeList: []
+  searchResults: [],
+  indRecipe: {}
  
 };
