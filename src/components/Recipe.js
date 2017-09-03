@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-
+import RecipeDetails from "./RecipeDetails";
 
 export default class Recipe extends Component {
   constructor(props) {
@@ -10,7 +10,7 @@ export default class Recipe extends Component {
     }
   }
     render() {
-
+      if(state.indRec)
       return (
         <div className="recipe" key={this.props.rec.id}>
           <button onClick={this.props.getIndRec(this.props.rec.id)}>
@@ -21,6 +21,8 @@ export default class Recipe extends Component {
             src={this.props.rec.image}
             alt="../images/CatforkTitleSmall.png"
           />
+
+
           {/* {this.state.instructions[props.rec.id]
             ? this.renderInstructions(this.state.instructions[props.rec.id])
             : ""} */}

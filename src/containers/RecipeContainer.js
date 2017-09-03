@@ -13,7 +13,7 @@ function mapDispatchToProps(dispatch) {
  
 function mapStateToProps(state) {
   return {
-  recipe: state.indRecipe
+  recipe: state.indRec
   };
 }
 export default connect(mapStateToProps,mapDispatchToProps)(Recipe);
