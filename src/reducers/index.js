@@ -7,7 +7,7 @@ function searchResults(state = [], action) {
   return state;
 }
 
-function indRecipeLoaded(state = [], action) {
+function indRecLoaded(state = [], action) {
   if (action.type === "IND_RECIPE_LOADED") {
     return action.value;
   }

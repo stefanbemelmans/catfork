@@ -1,10 +1,16 @@
-import React from "react";
+import React, {Component} from "react";
 
-export default function Recipe (props) {
+
+export default class Recipe extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      show: false
+    }
 
     return (
       <div className="recipe" key={props.rec.id}>
-        <button onClick={() => props.getIndRec(props.rec.id)}>
+        <button onClick={props.getIndRec(props.rec.id)}>
           {" "}{props.rec.title}{" "}
         </button>
         <img
@@ -18,3 +24,4 @@ export default function Recipe (props) {
       </div>
     );
   }
+}
