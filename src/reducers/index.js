@@ -8,7 +8,7 @@ function searchResults(state = [], action) {
 }
 
 function indRecLoaded(state = [], action) {
-  if (action.type === "IND_RECIPE_LOADED") {
+  if (action.type === "IND_REC_LOADED") {
     return action.value;
   }
   return state;

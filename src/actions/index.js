@@ -31,10 +31,10 @@ export function searchLoaded(recipes) {
   };
 }
 
-export function getIndRecipe(id) {
+export function getIndRec(id) {
   return function (dispatch) {
     dispatch({
-      type: "GET_IND_RECIPE"
+      type: "GET_IND_REC"
     });
   
     fetch(recBaseUrl + id + recEndUrl)
@@ -48,7 +48,7 @@ export function getIndRecipe(id) {
 
 export function indRecLoaded(recipe) {
   return {
-    type: "IND_RECIPE_LOADED",
+    type: "IND_REC_LOADED",
     value: recipe
   };
 }

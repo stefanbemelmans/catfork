@@ -10,12 +10,12 @@ export default class Recipe extends Component {
 
     return (
       <div className="recipe" key={props.rec.id}>
-        <button onClick={props.getIndRec(props.rec.id)}>
-          {" "}{props.rec.title}{" "}
+        <button onClick={this.props.getIndRec(props.rec.id)}>
+          {" "}{this.props.rec.title}{" "}
         </button>
         <img
           className="recPic"
-          src={props.rec.image}
+          src={this.props.rec.image}
           alt="../images/CatforkTitleSmall.png"
         />
         {/* {this.state.instructions[props.rec.id]
