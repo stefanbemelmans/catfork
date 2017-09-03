@@ -9,6 +9,8 @@ export default class Recipe extends Component {
 
     }
   }
+
+  // ComponentDidMount?? to render the recipeDetails??
     render() {
       let recipe;
       if(this.state.indRec) {
