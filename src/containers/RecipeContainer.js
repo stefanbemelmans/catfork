@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import {getIndRecipe} from "../actions";
-import RecipeList from "../components/RecipeList";
+import Recipe from "../components/Recipe";
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -12,5 +12,9 @@ function mapDispatchToProps(dispatch) {
 }
  
 function mapStateToProps(state) {
-  
+  return {
+  recipe: state.indRecipe
+  };
 }
+
+export default connect(mapStateToProps,mapDispatchToProps)(Recipe);
