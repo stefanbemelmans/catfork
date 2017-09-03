@@ -11,9 +11,9 @@ function mapDispatchToProps(dispatch) {
   };
 }
  
-function mapStateToProps(id) {
+function mapStateToProps(state) {
   return {
-  recipe: state.recipes[id]  
+  recipe: state.indRecipe  
   }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(RecipeList);
