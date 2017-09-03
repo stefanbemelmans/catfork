@@ -8,7 +8,7 @@ function RecipeList(props) {
     recipes = props.recipes.map(function (rec, i) {
       if (i < 5) {
         return (
-          <Recipe key={rec.id} rec={rec} />
+          <Recipe getIndRec={props.getIndRec} key={rec.id} rec={rec} />
         );  
       } 
       return (<div key={rec.id} />);

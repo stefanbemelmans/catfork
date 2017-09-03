@@ -5,12 +5,8 @@
  let recBaseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/";
  let recEndUrl = "/information?includeNutrition=false";
 
-
 export function getRecipes(searchTerm) {
-  
   let ings = searchTerm;
- 
-  
   return function (dispatch) {
     dispatch({
       type: "GET_RECIPES"
@@ -18,9 +14,8 @@ export function getRecipes(searchTerm) {
     fetch(baseUrl + ings + endUrl, {
       headers: {
               "X-Mashape-Key": "YmReyxlVdYmshU5Dlyo9XYbBPZtep1KJPXujsnt4Hiueq8H23o"
-            }
-
-    })
+              }
+      })
       .then( (response) => {
         return response.json();
       }).then((recipes) => {

@@ -13,7 +13,7 @@ export default function Recipe (props) {
           alt="../images/CatforkTitleSmall.png"
         />
         {/* {this.state.instructions[props.rec.id]
-          ? this.renderInstructions(this.state.instructions[props.rec.id])
+          ? this.renderInstructions(.instructions[props.rec.id])
           : ""} */}
       </div>
     );
