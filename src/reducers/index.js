@@ -26,5 +26,5 @@ function indRecLoaded(state = [], action) {
 //     return state;
 //   }
 // }
-const rootReducer = combineReducers({searchResults, indRecipeLoaded});
+const rootReducer = combineReducers({searchResults, indRecLoaded});
 export default rootReducer;
