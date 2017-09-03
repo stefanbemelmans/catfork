@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 
-import Recipe from "./Recipe";
+import Recipe from "../containers/RecipeContainer";
 
 function RecipeList(props) {
   let recipes;
@@ -8,7 +8,7 @@ function RecipeList(props) {
     recipes = props.recipes.map(function (rec, i) {
       if (i < 5) {
         return (
-          <Recipe getIndRec={props.getIndRec} key={rec.id} rec={rec} />
+          <Recipe key={rec.id} rec={rec} />
         );  
       } 
       return (<div key={rec.id} />);

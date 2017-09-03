@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import {getIndRec} from "../actions";
-import Recipe from "./components/Recipe";
+import Recipe from "../components/Recipe";
 
 function mapDispatchToProps(dispatch) {
   return {
