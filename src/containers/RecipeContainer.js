@@ -1,11 +1,11 @@
 import { connect } from "react-redux";
-import {getIndRecipe} from "../actions";
+import {getIndRec} from "../actions";
 import Recipe from "./components/Recipe";
 
 function mapDispatchToProps(dispatch) {
   return {
-    getIndRecipe(id) {
-      const action = getIndRecipe(id);
+    getIndRec(id) {
+      const action = getIndRec(id);
       dispatch(action);
     }
   };
@@ -16,5 +16,4 @@ function mapStateToProps(state) {
   recipe: state.indRecipe
   };
 }
-
 export default connect(mapStateToProps,mapDispatchToProps)(Recipe);
