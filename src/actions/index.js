@@ -37,11 +37,12 @@ export function getIndRec(id) {
       type: "GET_IND_REC"
     });
   
-    fetch(recBaseUrl + id + recEndUrl)
-      .then( (response) => {
-         headers: {
+    fetch(recBaseUrl + id + recEndUrl, {
+      headers: {
         "X-Mashape-Key": "YmReyxlVdYmshU5Dlyo9XYbBPZtep1KJPXujsnt4Hiueq8H23o"
         }
+    })
+      .then( (response) => {
         return response.json();
       }).then((recipe) => {
         dispatch(indRecLoaded(recipe))
