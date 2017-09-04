@@ -1,5 +1,5 @@
 export default {
   searchResults: [],
-  indRec: {}
+  recipe: {}
  
 };

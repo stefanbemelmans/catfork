@@ -9,14 +9,19 @@ export default class Recipe extends Component {
 
     }
   }
+componentDidMount(){
+  let recipe;
+  if(this.state.indRec) {
+    renderInstructions(state.indRec);
+    this.setState = {
+      show: true
+    }
+  }
 
+}
   // ComponentDidMount?? to render the recipeDetails??
     render() {
-      let recipe;
-      if(this.state.indRec) {
-        recipe = this.state.indRec;
-        
-      }
+     
       return (
         <div className="recipe" key={this.props.rec.id}>
           <button onClick={this.props.getIndRec(this.props.rec.id)}>
@@ -28,7 +33,7 @@ export default class Recipe extends Component {
             alt="../images/CatforkTitleSmall.png"
           />
 
-          <RecipeDetails recipe={recipe} />
+          <RecipeDetails style="display:{show};" recipe={recipe} />
           {/* {this.state.instructions[props.rec.id]
             ? this.renderInstructions(this.state.instructions[props.rec.id])
             : ""} */}

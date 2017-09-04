@@ -7,8 +7,8 @@ function searchResults(state = [], action) {
   return state;
 }
 
-function indRecLoaded(state = [], action) {
-  if (action.type === "IND_REC_LOADED") {
+function renderRecipe(state = [], action) {
+  if (action.type === "RENDER_RECIPE") {
     return action.value;
   }
   return state;
@@ -26,5 +26,5 @@ function indRecLoaded(state = [], action) {
 //     return state;
 //   }
 // }
-const rootReducer = combineReducers({searchResults, indRecLoaded});
+const rootReducer = combineReducers({searchResults, renderRecipe});
 export default rootReducer;

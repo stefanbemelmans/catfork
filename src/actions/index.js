@@ -45,14 +45,14 @@ export function getIndRec(id) {
       .then( (response) => {
         return response.json();
       }).then((recipe) => {
-        dispatch(indRecLoaded(recipe))
+        dispatch(renderRecipe(recipe))
       });
   }
 };
 
-export function indRecLoaded(recipe) {
+export function renderRecipe(recipe) {
   return {
-    type: "IND_REC_LOADED",
+    type: "RENDER_INSTRUCTIONS",
     value: recipe
   };
 }
