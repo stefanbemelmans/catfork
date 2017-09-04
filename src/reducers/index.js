@@ -7,7 +7,7 @@ function searchResults(state = [], action) {
   return state;
 }
 
-function renderRecipe(state = [], action) {
+function renderRecipe(state = {}, action) {
   if (action.type === "RENDER_RECIPE") {
     return action.value;
   }
