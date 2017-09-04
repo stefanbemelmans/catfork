@@ -18,7 +18,7 @@ function mapDispatchToProps(dispatch) {
  
 function mapStateToProps(state) {
   return {
-  recipe: state.indRec
+  recipe: state.renderRecipe
   };
 }
 export default connect(mapStateToProps,mapDispatchToProps)(Recipe);

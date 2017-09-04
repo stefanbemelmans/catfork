@@ -21,6 +21,9 @@ export default class Recipe extends Component {
 
   // ComponentDidMount?? to render the recipeDetails??
     render() {
+      let details = this.props.recipe
+        ? <RecipeDetails recipe={this.props.recipe} />
+        : "";
      
       return (
         <div className="recipe" key={this.props.rec.id}>
@@ -33,10 +36,8 @@ export default class Recipe extends Component {
             alt="../images/CatforkTitleSmall.png"
           />
 
-          {/* <RecipeDetails style="display:{show};" recipe={recipe} /> */}
-          {this.props.recipe
-            ? <RecipeDetails recipe={this.props.recipe} />
-            : ""}
+          {details}
+          
         </div>
       );
     };
