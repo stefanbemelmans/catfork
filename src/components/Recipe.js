@@ -24,7 +24,7 @@ export default class Recipe extends Component {
      
       return (
         <div className="recipe" key={this.props.rec.id}>
-          <button onClick={this.props.getIndRec(this.props.rec.id)}>
+          <button onClick={()=>this.props.getIndRec(this.props.rec.id)}>
             {" "}{this.props.rec.title}{" "}
           </button>
           <img
@@ -35,7 +35,7 @@ export default class Recipe extends Component {
 
           {/* <RecipeDetails style="display:{show};" recipe={recipe} /> */}
           {this.props.recipe
-            ? this.props.renderInstructions(this.props.recipe)
+            ? <RecipeDetails recipe={this.props.recipe} />
             : ""}
         </div>
       );
