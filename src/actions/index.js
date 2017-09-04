@@ -52,7 +52,7 @@ export function getIndRec(id) {
 
 export function renderRecipe(recipe) {
   return {
-    type: "RENDER_INSTRUCTIONS",
+    type: "RENDER_RECIPE",
     value: recipe
   };
 }

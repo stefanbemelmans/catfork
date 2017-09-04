@@ -9,16 +9,16 @@ export default class Recipe extends Component {
 
     }
   }
-componentDidMount(){
-  let recipe;
-  if(this.state.indRec) {
-    renderInstructions(state.indRec);
-    this.setState = {
-      show: true
-    }
-  }
+// componentDidMount(){
+//   let recipe;
+//   if(this.state.indRec) {
+//     render(state.indRec);
+//     this.setState = {
+//       show: true
+//     }
+//   }
 
-}
+
   // ComponentDidMount?? to render the recipeDetails??
     render() {
      
@@ -33,10 +33,10 @@ componentDidMount(){
             alt="../images/CatforkTitleSmall.png"
           />
 
-          <RecipeDetails style="display:{show};" recipe={recipe} />
-          {/* {this.state.instructions[props.rec.id]
-            ? this.renderInstructions(this.state.instructions[props.rec.id])
-            : ""} */}
+          {/* <RecipeDetails style="display:{show};" recipe={recipe} /> */}
+          {this.props.recipe
+            ? this.props.renderInstructions(this.props.recipe)
+            : ""}
         </div>
       );
     };
