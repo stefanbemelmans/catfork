@@ -9,6 +9,14 @@ export default class Recipe extends Component {
 
     }
   }
+
+  isEmpty(obj) {
+    for(var key in obj) {
+        if(obj.hasOwnProperty(key))
+            return false;
+    }
+    return true;
+}
 // componentDidMount(){
 //   let recipe;
 //   if(this.state.indRec) {
@@ -21,9 +29,8 @@ export default class Recipe extends Component {
 
   // ComponentDidMount?? to render the recipeDetails??
     render() {
-      let details = this.props.recipe
-        ? <RecipeDetails recipe={this.props.recipe} />
-        : "";
+      let details = this.isEmpty(this.props.recipe)
+        ? "" : <RecipeDetails recipe={this.props.recipe} />;
      
       return (
         <div className="recipe" key={this.props.rec.id}>
