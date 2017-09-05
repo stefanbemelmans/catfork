@@ -7,18 +7,18 @@ export default function RecipeDetails(props) {
     
       <li key={i}>`${ing.originalString}`</li>
     );
-  });
+  })
   
-  let method = props.recipe.analyzedInstructions.map((step,i) => {
+  let method = props.recipe.analyzedInstructions[0].steps.map((step,i) => {
     return(
-    <li key={i}> "step: " + {step.steps.number} + " " + {step.steps.step}</li>
+    <li key={i}> "step: " + {step.number} + " " + {step.step}</li>
     );
   });
   
   return (
-    <div className="recipe">
+    <div className="recipeIns">
       <ul>{ings}</ul>
-      <div className="recipeIns">
+      <div>
         <ul>{method}</ul>
       </div>
     </div>
