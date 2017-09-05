@@ -8,6 +8,7 @@ export default class Recipe extends Component {
       show: false,
 
     }
+    this.getIndRec = this.props.getIndRec.bind(this);
   }
 
   isEmpty(obj) {
@@ -34,11 +35,7 @@ export default class Recipe extends Component {
      
       return (
         <div className="recipe" key={this.props.rec.id}>
-<<<<<<< HEAD
-          <button onClick={()=>{this.props.getIndRec(this.props.rec.id)}}>
-=======
-          <button onClick={() => this.props.getIndRec(this.props.rec.id)}>
->>>>>>> 6ff72db82aeb8c4984fe5ae03982d226b305f88d
+          <button onClick={()=>{this.getIndRec(this.props.rec.id)}}>
             {" "}{this.props.rec.title}{" "}
           </button>
           <img
