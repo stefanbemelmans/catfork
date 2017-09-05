@@ -1,6 +1,6 @@
  //let recBaseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/{id}/information?includeNutrition=false";
  let baseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=";
- let endUrl = "&limitLicense=false&number=10&ranking=1";
+ let endUrl = "&limitLicense=false&number=2&ranking=1";
 
  let recBaseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/";
  let recEndUrl = "/information?includeNutrition=false";
