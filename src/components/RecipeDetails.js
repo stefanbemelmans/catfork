@@ -3,7 +3,10 @@ import React from "react";
 export default function RecipeDetails(props) {
  
   let ings = props.recipe.extendedIngredients.map((ing, i) => {
-    return <li key={i}>`${ing.orignalString}`</li>
+    return 
+    
+      <li key={i}>`${ing.originalString}`</li>
+   
   });
   
   let method = props.recipe.analyzedInstructions.map((step,i) => {
@@ -11,10 +14,11 @@ export default function RecipeDetails(props) {
   });
   
   return (
-    <div>
+    <div className="recipe">
       <ul>{ings}</ul>
-
-      <ul>{method}</ul>
+      <div className="recipeIns">
+        <ul>{method}</ul>
+      </div>
     </div>
 
   );
