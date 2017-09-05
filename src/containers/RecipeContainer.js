@@ -7,12 +7,12 @@ function mapDispatchToProps(dispatch) {
     getIndRec(id) {
       const action = getIndRec(id);
       dispatch(action);
-    },
+    }
   
-  renderRecipe(recipe) {
-    const action = renderRecipe(recipe);
-    dispatch(action);
-  }
+  // renderRecipe(recipe) {
+  //   const action = renderRecipe(recipe);
+  //   dispatch(action);
+  // }
 }
 }
  

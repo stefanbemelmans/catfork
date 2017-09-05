@@ -34,7 +34,7 @@ export default class Recipe extends Component {
      
       return (
         <div className="recipe" key={this.props.rec.id}>
-          <button onClick={()=>this.props.getIndRec(this.props.rec.id)}>
+          <button onClick={()=>{this.props.getIndRec(this.props.rec.id)}}>
             {" "}{this.props.rec.title}{" "}
           </button>
           <img
