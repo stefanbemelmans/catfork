@@ -6,6 +6,7 @@ export default class Recipe extends Component {
     super(props);
     this.state = {
       show: false,
+      recipe: this.props.recipe
 
     }
     this.getIndRec = this.props.getIndRec.bind(this);
@@ -18,20 +19,19 @@ export default class Recipe extends Component {
     }
     return true;
 }
-// componentDidMount(){
-//   let recipe;
-//   if(this.state.indRec) {
-//     render(state.indRec);
-//     this.setState = {
-//       show: true
-//     }
-//   }
+componentDidMount(){
+  
+  this.setState = {
+    recipe: this.props.recipe,  
+    show: true
+    }
+  }
 
 
   // ComponentDidMount?? to render the recipeDetails??
     render() {
-      let details = this.isEmpty(this.props.recipe)
-        ? "" : <RecipeDetails recipe={this.props.recipe} />;
+      let details = this.isEmpty(this.state.recipe)
+        ? "" : <RecipeDetails recipe={this.state.recipe} />;
      
       return (
         <div className="recipe" key={this.props.rec.id}>
