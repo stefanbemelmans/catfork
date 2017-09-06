@@ -9,9 +9,15 @@ export default class Recipe extends Component {
       recipe: this.props.recipe
 
     }
-    this.getIndRec = this.props.getIndRec.bind(this);
+    // this.getIndRec = this.props.getIndRec.bind(this);
   }
-
+  // componentDidMount(){
+    
+  //   this.setState = {
+  //     recipe: this.props.recipe,  
+  //     show: true
+  //     }
+  //   }
   isEmpty(obj) {
     for(var key in obj) {
         if(obj.hasOwnProperty(key))
@@ -19,23 +25,17 @@ export default class Recipe extends Component {
     }
     return true;
 }
-componentDidMount(){
   
-  this.setState = {
-    recipe: this.props.recipe,  
-    show: true
-    }
-  }
 
 
   // ComponentDidMount?? to render the recipeDetails??
     render() {
-      let details = this.isEmpty(this.state.recipe)
-        ? "" : <RecipeDetails recipe={this.state.recipe} />;
+      let details = this.isEmpty(this.props.recipe)
+        ? "" : <RecipeDetails recipe={this.props.recipe} />;
      
       return (
         <div className="recipe" key={this.props.rec.id}>
-          <button onClick={()=>this.getIndRec(this.props.rec.id)}>
+          <button onClick={()=>this.props.getIndRec(this.props.rec.id)}>
             {" "}{this.props.rec.title}{" "}
           </button>
           <img
