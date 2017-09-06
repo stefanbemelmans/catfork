@@ -3,9 +3,12 @@ import catForkImg from "./images/CatForkTitleSmall.png";
 import CatPic from "./components/CatPicComponent.js";
 import "./App.css";
 import SearchBox from "./containers/SearchBoxContainer";
-import RecipeList from "./containers/RecipeListContainer";
+import RecipeList from "./containers/RecipeListContainer ";
 
 class App extends Component {
+  // constructor(props) {
+  //   super(props);
+  // }
   render() {
     return (
       <div className="app">
@@ -18,7 +21,7 @@ class App extends Component {
 
         <SearchBox />
 
-        <RecipeList />
+        <RecipeList recipes={this.props.recipes} />
       </div>
     );
   }

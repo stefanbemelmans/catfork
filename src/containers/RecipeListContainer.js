@@ -15,5 +15,5 @@ function mapStateToProps(state) {
   return {
   recipes: state.searchResults  
   }
-}
+};
 export default connect(mapStateToProps,null)(RecipeList);
