@@ -21,7 +21,7 @@ class App extends Component {
 
         <SearchBox />
 
-        <RecipeList recipes={this.props.recipes} />
+        <RecipeList />
       </div>
     );
   }
