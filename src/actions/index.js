@@ -34,7 +34,7 @@ export function searchLoaded(recipes) {
 export function getIndRec(id) {
   return function (dispatch) {
     dispatch({
-      type: "GET_IND_REC"
+      type: "GET_RECIPE"
     });
   
     fetch(recBaseUrl + id + recEndUrl, {
