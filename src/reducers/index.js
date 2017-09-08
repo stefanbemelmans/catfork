@@ -32,5 +32,5 @@ function renderRecipe(state = {}, action) {
 //     return state;
 //   }
 // }
-const rootReducer = combineReducers({searchResults, renderRecipe, getRecipe});
+const rootReducer = combineReducers({searchResults, renderRecipe});
 export default rootReducer;

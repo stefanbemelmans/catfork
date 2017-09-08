@@ -36,7 +36,6 @@ export function getIndRec(id) {
     dispatch({
       type: "GET_RECIPE"
     });
-  
     fetch(recBaseUrl + id + recEndUrl, {
       headers: {
         "X-Mashape-Key": "YmReyxlVdYmshU5Dlyo9XYbBPZtep1KJPXujsnt4Hiueq8H23o"
@@ -45,16 +44,21 @@ export function getIndRec(id) {
       .then( (response) => {
         return response.json();
       }).then((recipe) => {
-        dispatch(renderRecipe(recipe))
+        return {value:recipe}
       });
   }
 };
 
-export function renderRecipe(recipe) {
-  return {
-    type: "RENDER_RECIPE",
-    value: recipe
-  };
+export function renderRecipe(id) {
+  return function (dispatch,getIndRec){
+    dispatch({type: "RENDER_RECIPE"});
+    if(getIndRec.includes(id)){
+      return {value: getIndRec[id]}
+    }
+    else{
+     return dispatch(getIndRec(id));
+    };
+  }
 }
 // export function getIndRec(id) {
  
