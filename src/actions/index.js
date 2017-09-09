@@ -44,22 +44,18 @@ export function getIndRec(id) {
       .then( (response) => {
         return response.json();
       }).then((recipe) => {
-        return {value:recipe}
+        dispatch(renderRecipe(recipe));
       });
   }
 };
 
-export function renderRecipe(id) {
-  return function (dispatch,getIndRec){
-    dispatch({type: "RENDER_RECIPE"});
-    if(getIndRec.includes(id)){
-      return {value: getIndRec[id]}
-    }
-    else{
-     return dispatch(getIndRec(id));
+export function renderRecipe(recipe) {
+  return {
+      type: "RENDER_RECIPE",
+      value: recipe
     };
   }
-}
+
 // export function getIndRec(id) {
  
 //   fetch(recBaseUrl + recId + recEndUrl, {

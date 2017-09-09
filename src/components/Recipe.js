@@ -30,12 +30,13 @@ export default class Recipe extends Component {
 
   // ComponentDidMount?? to render the recipeDetails??
     render() {
-      let details = this.isEmpty(this.props.recipe)
-        ? "" : <RecipeDetails recipe={this.props.recipe} />;
+      let details =
+      this.props.recipe.id === this.props.rec.id ?
+         <RecipeDetails recipe={this.props.recipe} /> : "";
      
       return (
         <div className="recipe" key={this.props.rec.id}>
-          <button onClick={()=>this.props.renderRecipe(this.props.rec.id)}>
+          <button onClick={()=>this.props.getIndRec(this.props.rec.id)}>
             {" "}{this.props.rec.title}{" "}
           </button>
           <img

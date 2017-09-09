@@ -4,8 +4,8 @@ import Recipe from "../components/Recipe";
 
 function mapDispatchToProps(dispatch) {
   return {
-    renderRecipe(id) {
-      const action = renderRecipe(id);
+    getIndRec(id) {
+      const action = getIndRec(id);
       dispatch(action);
     }
   
