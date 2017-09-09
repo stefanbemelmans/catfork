@@ -7,11 +7,11 @@ function searchResults(state = [], action) {
   return state;
 }
 
-function getRecipe(state = [...state], action) {
-  if (action.type === "GET_RECIPE") {
-    return action.value;
-  }
-}
+// function getRecipe(state = [...state], action) {
+//   if (action.type === "GET_RECIPE") {
+//     return action.value;
+//   }
+// }
 
 function renderRecipe(state = {}, action) {
   if (action.type === "RENDER_RECIPE") {
