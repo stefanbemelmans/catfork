@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import catForkImg from "./images/CatForkTitleSmall.png";
+import catForkImg from "./images/catForkImg_square.png";
 import CatPic from "./components/CatPicComponent.js";
 import "./App.css";
 import SearchBox from "./containers/SearchBoxContainer";
