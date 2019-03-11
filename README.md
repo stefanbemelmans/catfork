@@ -1,3 +1,14 @@
+# Catfork!
+
+This is my capstone project for the Austin Coding Academy. It is a recipe Search App that is powered by the [Spoonacular](https://spoonacular.com/) API.
+
+The user enters one or more comma separated ingredients and is returned a list of recipes containing those ingredients.
+
+There is also a dynamic picture of a cat provided by [CatApi](https://thecatapi.com/) that can be changed on a button press.
+
+This project is in the middle of a refactorx2, once to bring it up to speed with the current versions of everthing, that is [Catfork2](https://github.com/stefanbemelmans/Catfork2) and another version [ts-Catfork2](https://github.com/stefanbemelmans/ts-catfork2) which is refactored in TypeScript. Everything is a work in progress.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
