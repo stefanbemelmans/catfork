@@ -1,6 +1,6 @@
 # Catfork!
 
-This is my capstone project for the Austin Coding Academy. It is a recipe Search App that is powered by the [Spoonacular](https://spoonacular.com/) API.
+This is my capstone project for the Austin Coding Academy. It is a recipe Search App written in React, using MongoDB and the redux framework, that is powered by the [Spoonacular](https://spoonacular.com/) API.
 
 The user enters one or more comma separated ingredients and is returned a list of recipes containing those ingredients.
 
