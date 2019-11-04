@@ -1,35 +1,15 @@
   import React, {Component} from 'react';
-  import axios from "axios";
-  export default  class CatPic extends React.Component {
-    constructor() {
-      super();
-      this.state = {
-        kitty: 'https://thecatapi.com/api/images/get?format=src&size=med"'
-      };
-      this.resetCatPic = this.resetCatPic.bind(this);
-    }
-  
-    resetCatPic() {
-      let newCat = "https://thecatapi.com/api/images/get?format=src&size=med";
-      axios(newCat)
-        .then(function(response) {
-          console.log(response);
-          return response.blob();
-        })
-        .then(myBlob => {
-          console.log(myBlob);
-          // debugger
-          this.setState({
-            kitty: URL.createObjectURL(myBlob)
-          });
-        });
+  // import axios from "axios";
+  export default  class CatPic extends Component {
+    constructor(props) {
+      super(props);
     }
   
     render() {
       return (
-        <div Col-xs-10 Col-sm-8 Col-md-6>
+        <div>
           <a href="https://thecatapi.com">
-            <img className="catPic" src={this.state.kitty} alt="logo" />
+            <img className="catPic" src={this.props.catUrl} alt="logo" />
           </a>
           <button className="btn-class" onClick={this.resetCatPic}>
             New Cat

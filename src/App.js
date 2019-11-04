@@ -6,9 +6,21 @@ import SearchBox from "./containers/SearchBoxContainer";
 import RecipeList from "./containers/RecipeListContainer";
 
 class App extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+  constructor(props) {
+    super(props);
+    this.state =  {
+      catUrl: null
+    }
+  }
+
+ async resetCatPic() {
+   var response = await fetch("https://thecatapi.com/api/images/get?format=src&size=med")
+   console.log("hitting getnew cat", response);
+   this.setState({
+     catUrl: response.url
+   });
+ } 
+
   render() {
     return (
       <div className="app">
@@ -17,11 +29,13 @@ class App extends Component {
           
         </div>
         <p className="app-intro"> This is a recipe search app based on ingredients you enter. Please separate them by a comma and enter at least two (2). </p>
-        <CatPic />
+        <CatPic catUrl={this.state.catUrl} />
+        <button className="btn-class" onClick={this.resetCatPic.bind(this)}>
+            New Cat
+          </button>
+        {/* <SearchBox />
 
-        <SearchBox />
-
-        <RecipeList />
+        <RecipeList /> */}
       </div>
     );
   }
