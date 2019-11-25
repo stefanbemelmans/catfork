@@ -1,6 +1,40 @@
 import { connect } from "react-redux";
-import {getRecipes} from "../actions";
+import * as recipeActions from "../actions";
 import SearchBox from "../components/SearchBox";
+const baseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=";
+const endUrl = "&limitLicense=false&number=2&ranking=1";
+
+const recBaseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/";
+const recEndUrl = "/information?includeNutrition=false";
+
+export const fetchRecipes = async (searchTerm) => {
+  getRecipes(searchTerm)
+  return dispatch => dispatch(recipeActions.FETCH_RECIPES)
+  }
+
+    const recipes = await fetch(baseUrl + ings + endUrl, {
+      headers: {
+              "X-Mashape-Key": "YmReyxlVdYmshU5Dlyo9XYbBPZtep1KJPXujsnt4Hiueq8H23o"
+              }
+      })
+      recipes =
+      .then( (response) => {
+        return response.json();
+      }).then((recipes) => {
+        dispatch(searchLoaded(recipes));
+      });
+  };
+}
+
+getRecipes = async(searchTerms) => {
+  const recipes = await fetch(baseUrl + searchTerms + endUrl, {
+    headers: {
+            "X-Mashape-Key": "YmReyxlVdYmshU5Dlyo9XYbBPZtep1KJPXujsnt4Hiueq8H23o"
+            }
+    });
+    const parsedRecipes = await recipes.json();
+    return dispatch => dispatch(recipeActions.SET_RECIPES(parsedRecipes))
+}
 
 
 function mapDispatchToProps(dispatch) {
