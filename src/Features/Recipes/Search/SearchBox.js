@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import {fetchRecipes} from "./SearchBoxContainer"
+import {FetchRecipes} from "./SearchBoxContainer"
 import {useDispatch} from "react-redux"
 
 export const SearchBox = () => {
@@ -15,7 +15,7 @@ export const SearchBox = () => {
           onChange={(e) => searchTerms(e.target.value)}
           />
        {/* TODO: add searchTerm validation */}
-       <button type="submit" title="Search" onClick={() => dispatch(fetchRecipes(searchTerms))}>
+       <button type="submit" title="Search" onClick={() => dispatch(FetchRecipes(searchTerms))}>
          Search!
        </button>
        

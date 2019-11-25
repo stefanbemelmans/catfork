@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import catForkImg from "./images/catForkImg_square.png";
 import { CatPic } from "./components/CatPicComponent.js";
 import "./App.css";
-import SearchBox from "./containers/SearchBoxContainer";
-import RecipeList from "./containers/RecipeListContainer";
+import SearchBox from "./Features/Recipes/Search/SearchBoxContainer";
+import RecipeList from "./Features/Recipes/components/RecipeList";
 
 class App extends Component {
   constructor(props) {

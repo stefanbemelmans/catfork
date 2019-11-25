@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 
-import Recipe from "../containers/RecipeContainer";
+import Recipe from "../../../containers/RecipeContainer";
 
 export const RecipeList = (props) =>  {
   let recipes;

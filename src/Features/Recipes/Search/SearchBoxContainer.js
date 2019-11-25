@@ -1,17 +1,18 @@
+import React from 'react'
 import { useDispatch } from "react-redux";
 import * as recipeActions from "../recipeActionTypes";
-import * as urls from "./constants.js";
-import SearchBox from "../components/SearchBox";
+import * as urls from "../constants.js";
+import SearchBox from "./SearchBox";
 
-const dispatch = useDispatch();
-
-export const fetchRecipes = (searchTerm) => {
+export const FetchRecipes = (searchTerm) => {
+  const dispatch = useDispatch();
   const ingredientsToSearch = searchTerm
-  getRecipes(ingredientsToSearch)
+  GetRecipes(ingredientsToSearch)
    dispatch(recipeActions.FETCH_RECIPES)
   }
 
-const getRecipes = async(searchTerms) => {
+const GetRecipes = async(searchTerms) => {
+  const dispatch = useDispatch();
   const recipes = await fetch(
     urls.recipeSearchBaseUrl + searchTerms + urls.recipeSearchEndUrl,
     {
