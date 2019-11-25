@@ -2,7 +2,7 @@ import React, {Component} from "react";
 
 import Recipe from "../containers/RecipeContainer";
 
-function RecipeList(props) {
+export const RecipeList = (props) =>  {
   let recipes;
   if (props.recipes) {
     recipes = props.recipes.map(function (rec, i) {
