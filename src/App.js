@@ -12,6 +12,7 @@ class App extends Component {
     this.state =  {
       catUrl: null
     }
+    this.resetCatPic()
   }
 
  async resetCatPic() {
@@ -29,14 +30,14 @@ class App extends Component {
         <div className="catforkLogoContainer">
           <img src={catForkImg} className="" alt="logo" />
         </div>
-        <p className="app-intro"> This is a recipe search app based on ingredients you enter. Please separate them by a comma and enter at least two (2). </p>
         <CatPic catUrl={this.state.catUrl} />
         <button className="btn-class" onClick={this.resetCatPic.bind(this)}>
             New Cat
           </button>
-        {/* <SearchBox />
+        <p className="app-intro"> This is a recipe search app based on ingredients you enter. Please separate them by a comma and enter at least two (2). </p>
+        <SearchBox />
 
-        <RecipeList /> */}
+        <RecipeList />
       </div>
     );
   }
