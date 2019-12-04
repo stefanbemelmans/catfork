@@ -12,18 +12,4 @@ This project is in the middle of a refactorx2, once to bring it up to speed with
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 # Cat Fork Rises!
 
-
-## The beginning of a refactor
-
-This was the capstone project I completed while attending the Austin Coding Acadamy. I figured it's time for an overhaul.
-
-## the Breakdown
-
-*  Cat Picture
-  - Redux is already in the app So I'll just keep a cat picture in there and cycle on button press
-
-* Recipe Search
-  - This is already in redux, I'll clean up the logic and the styling a little. 
-
-* Fetch Individual Recipe
-  - Styling and a bit of refactor here, going to expand a bit.
+This project is my goto to test new features of React. I am in the process of connecting with Firebase RTD and implementing Google Auth. Then the plan is refactor using Hooks, just for fun. 
