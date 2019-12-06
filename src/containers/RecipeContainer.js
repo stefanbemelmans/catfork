@@ -1,24 +1,19 @@
-import { connect } from "react-redux";
-import {getIndRec,renderRecipe} from "../actions";
+import React from "react";
+import { useDispatch } from "react-redux";
+import * as recipeActions from "../Features/Recipes/recipeActionTypes";
 import Recipe from "../components/Recipe";
+import * as urls from "../Features/Recipes/constants"
 
-function mapDispatchToProps(dispatch) {
-  return {
-    getIndRec(id) {
-      const action = getIndRec(id);
-      dispatch(action);
-    }
-  
-  // renderRecipe(recipe) {
-  //   const action = renderRecipe(recipe);
-  //   dispatch(action);
-  // }
-}
-}
- 
-function mapStateToProps(state) {
-  return {
-  recipe: state.renderRecipe
-  };
-}
-export default connect(mapStateToProps,mapDispatchToProps)(Recipe);
+export const GetIndividualRecipe = async (id) => {
+  const dispatch = useDispatch();
+    let recipe = fetch(urls.recipeSearchBaseUrl + id + urls.recipeSearchEndUrl, {
+      headers: urls.mashapeHeader
+    })
+
+    let parsedRecipe = recipe.json();
+    return(
+    dispatch(recipeActions.SET_INDIVIDUAL_RECIPE(parsedRecipe))
+    )
+  }
+export default Recipe;
+
