@@ -7,13 +7,13 @@ I am in the process of migrating the app to Firebase so these pictures will have
  ![alt text](src/images/CatForkCat1.png) __CATS!__
 
  this picture is an example of searching for "tomato, cheese, herbs"
- ![alt text](src\images\CatForkRecipeSearchSmall.png)
+ ![alt text](src/images/CatForkRecipeSearchSmall.png)
  
 Then peruse the results and select one that looks tasty...
- ![alt text](src\images\CatForkRecipe.png)
+ ![alt text](src/images/CatForkRecipe.png)
 
 Voila!
-![alt text](src\images\CatForkRecipeSmall.png)
+![alt text](src/images/CatForkRecipeSmall.png)
 
 And then the "NewCat" button refreshes the cat picture.
 
