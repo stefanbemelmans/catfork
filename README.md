@@ -6,11 +6,17 @@ This is an app I built as my capstone project at the Austin Coding Academy in th
 I am in the process of migrating the app to Firebase so these pictures will have to satisfy your curiosity for now. 
  ![alt text](src/images/CatForkCat1.png) __CATS!__
 
- ![alt text](src/images/CatForkRecipe.png) __MMMMMM Tomato Cheese and Herbs!__
-![alt text](src/images/CatForkRecipes.png) 
- __OOOh Look at the Recipes!__ 
- __That heirloom salad looks great! If I press the button....__
- ![alt text](./src/images/CatForkRecipeSmall.png)
+ this picture is an example of searching for "tomato, cheese, herbs"
+ ![alt text](src\images\CatForkRecipeSearchSmall.png)
+ 
+Then peruse the results and select one that looks tasty...
+ ![alt text](src\images\CatForkRecipe.png)
+
+Voila!
+![alt text](src\images\CatForkRecipeSmall.png)
+
+And then the "NewCat" button refreshes the cat picture.
+
 __Yay CatFork!__
 ![alt text](http://thecatapi.com/api/images/get?format=src&size=medium)
  
@@ -22,3 +28,4 @@ Not a bad recipe app either. I'm expanding the functionality to include:
 * Ingredient/Recipe Conversion, Including Pan-Size Adjustment For Things In Rimmed Pans! (something I've always wanted)
 * Long Term is adding the ability to create your own recipe and minting an ERC-1155 Non-Fungible Token as a way to memorialize it and the ability to add it to the Catfork Recipe Vault.
 
+I hope you were mildly entertained. :)
