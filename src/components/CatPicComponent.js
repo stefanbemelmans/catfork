@@ -2,7 +2,7 @@
   // import axios from "axios";
   export const CatPic = (props) => {
       return (
-        <div id="catPicContainer">
+        <div>
           <a href="https://thecatapi.com">
             <img className="catPic" src={props.catUrl} alt="logo" />
           </a>
