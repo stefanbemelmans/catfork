@@ -6,7 +6,7 @@ This is an app I built as my capstone project at the Austin Coding Academy in th
 I am in the process of migrating the app to Firebase so these pictures will have to satisfy your curiosity for now. 
  ![alt text](src/images/CatForkCat1.png) __CATS!__
 
- ![alt text](src/images/CatForkRecipeSearchSmall.png) __MMMMMM Tomato Cheese and Herbs!__
+ ![alt text](src/images/CatForkRecipe.png) __MMMMMM Tomato Cheese and Herbs!__
 ![alt text](src/images/CatForkRecipes.png) 
  __OOOh Look at the Recipes!__ 
  __That heirloom salad looks great! If I press the button....__
