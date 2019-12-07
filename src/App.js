@@ -5,6 +5,7 @@ import { CatPic } from "./components/CatPicComponent.js";
 import "./App.css";
 import SearchBox from "./Features/Recipes/Search/SearchBoxContainer";
 import RecipeList from "./Features/Recipes/components/RecipeList";
+import firebase from "firebase";
 require("dotenv").config();
 
 class App extends Component {
