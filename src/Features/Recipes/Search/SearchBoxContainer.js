@@ -7,8 +7,8 @@ import SearchBox from "./SearchBox";
 export const FetchRecipes = (searchTerm) => {
   const dispatch = useDispatch();
   const ingredientsToSearch = searchTerm
-  GetRecipes(ingredientsToSearch)
-   dispatch(recipeActions.FETCH_RECIPES)
+  dispatch(recipeActions.FETCH_RECIPES)
+  return  GetRecipes(ingredientsToSearch)
   }
 
 const GetRecipes = async(searchTerms) => {
