@@ -1,13 +1,14 @@
+/* eslint-disable no-undef */
 import React from "react";
 import { useDispatch } from "react-redux";
 import * as recipeActions from "../Features/Recipes/recipeActionTypes";
 import Recipe from "../components/Recipe";
-import * as urls from "../Features/Recipes/constants"
+import {getIndividualRecipeUrlFactory, mashapeHeader} from "../Features/Recipes/constants"
 
 export const GetIndividualRecipe = async (id) => {
   const dispatch = useDispatch();
-    let recipe = fetch(urls.recipeSearchBaseUrl + id + urls.recipeSearchEndUrl, {
-      headers: urls.mashapeHeader
+    let recipe = fetch(getIndividualRecipeUrlFactory(id), {
+      headers: mashapeHeader
     })
 
     let parsedRecipe = recipe.json();

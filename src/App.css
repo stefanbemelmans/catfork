@@ -19,6 +19,11 @@
   justify-content: space-around;
 
 }
+
+.search {
+  margin: 2rem;
+  
+}
 .app-side {
   background-color: inherit;
   /*font-size: 30px;*/
