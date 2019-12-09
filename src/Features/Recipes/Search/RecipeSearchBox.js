@@ -20,22 +20,26 @@ export const RecipeSearchBox = () => {
     });
     const parsedRecipes = await recipes.json();
     console.log("parsed Recipe:", parsedRecipes);
-    dispatch(recipeActions.SET_RECIPES(parsedRecipes));
+    dispatch({type:recipeActions.SET_RECIPES, searchResults: parsedRecipes});
   };
   return (
-    <div id="search" className="Search">
-      
+    <div id="search" className="search">
+      <div style={{flexDirection: "row"}}>
+
       <input
+        className="searchInput"
         type="number"
         placeholder="10"
         onChange={e => setNumOfRecipes(e.target.value)}
         />
-      <input 
+      <input
+        className="searchInput ingredientInput" 
         type="text"
         placeholder="Enter comma separated ingredients..."
         onChange={e => setSearchTerms(e.target.value)}
-      />
+        />
       {/* TODO: add searchTerm validation */}
+      </div>
       <button
         type="submit"
         title="Search"
