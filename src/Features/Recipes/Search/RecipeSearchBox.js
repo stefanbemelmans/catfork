@@ -3,47 +3,56 @@
 import React, { useState } from "react";
 import * as recipeActions from "../recipeActionTypes";
 import { useDispatch } from "react-redux";
-import {recipeSearchUrlFactory, mashapeHeader} from "../constants.js";
+import { recipeSearchUrlFactory, mashapeHeader } from "../constants.js";
 
 export const RecipeSearchBox = () => {
   const dispatch = useDispatch();
   const [searchTerms, setSearchTerms] = useState("");
   const [numOfRecipes, setNumOfRecipes] = useState(10);
-  
+
   const GetRecipes = async (ingredients, numofRec) => {
     console.log("ingredients from searchInput: ", ingredients);
 
-    // TODO: Clean the user entered ingredients, remove white space
-    var cleanedIngredientString = ingredients.split(",").map(x => x.trim()).toString();
-    console.log(cleanedIngredientString, "anything?")
+    var cleanedIngredientString = ingredients
+      .split(",")
+      .map(x => x.trim())
+      .toString();
+    console.log(cleanedIngredientString, "anything?");
     // These are async actions and they happen quickly So I decided to set flags anyway
     dispatch({ type: recipeActions.FETCH_RECIPES });
-    var searchString = recipeSearchUrlFactory(cleanedIngredientString, numofRec);
+    var searchString = recipeSearchUrlFactory(
+      cleanedIngredientString,
+      numofRec
+    );
     console.log("searchstring:", searchString);
     const recipes = await fetch(searchString, {
       headers: mashapeHeader
     });
     const parsedRecipes = await recipes.json();
     console.log("parsed Recipe:", parsedRecipes);
-    dispatch({type:recipeActions.SET_RECIPES, searchResults: parsedRecipes});
+    dispatch({ type: recipeActions.SET_RECIPES, searchResults: parsedRecipes });
   };
   return (
     <div id="search" className="search">
-      <div style={{flexDirection: "row"}}>
-
-      <input
-        className="searchInput"
-        type="number"
-        placeholder="10"
-        onChange={e => setNumOfRecipes(e.target.value)}
+      <div className="searchComponent">
+        <h3>Number Of Recipes</h3>
+        <input
+          className="searchInput"
+          type="number"
+          placeholder="10"
+          onChange={e => setNumOfRecipes(e.target.value)}
         />
-      <input
-        className="searchInput ingredientInput" 
-        type="text"
-        placeholder="Enter comma separated ingredients..."
-        onChange={e => setSearchTerms(e.target.value)}
+      </div>
+      <div className="searchComponent">
+        <h3>Enter Ingredients</h3>
+        <h6>Separated By A Comma</h6>
+        <input
+          className="searchInput ingredientInput"
+          type="text"
+          placeholder="chicken, peppers, garlic"
+          onChange={e => setSearchTerms(e.target.value)}
         />
-      {/* TODO: add searchTerm validation */}
+        {/* TODO: add searchTerm validation */}
       </div>
       <button
         type="submit"

@@ -7,7 +7,7 @@ import RecipeSearchBox from "./Features/Recipes/Search/RecipeSearchBox";
 import RecipeList from "./Features/Recipes/components/RecipeList";
 import firebase from "firebase";
 import firebaseConfig from "./Features/Firebase/firebaseConfig";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 firebase.initializeApp(firebaseConfig)
 
 class App extends Component {

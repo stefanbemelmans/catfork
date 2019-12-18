@@ -27,7 +27,14 @@
   width: 50%;
   justify-content: space-around;
   background-color: #7eb4e3;
-  
+}
+
+.searchComponent {
+  border-width: 1px;
+  border-color: #1f063b;
+  padding: 2px;
+  margin: 2px;
+  flex-direction: column;
 }
 .ingredientInput {
   width: 20rem;

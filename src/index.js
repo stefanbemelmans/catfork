@@ -7,6 +7,8 @@ import { Provider } from "react-redux";
 // import users from "./users";
 import store from "./store";
 
+// Importing the Bootstrap CSS
+
 ReactDOM.render(<Provider store={store}><App /></Provider>,
    document.getElementById('root'));
 
