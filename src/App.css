@@ -19,6 +19,23 @@
   justify-content: space-around;
 
 }
+
+.search {
+  margin: 2rem;
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  justify-content: space-around;
+  background-color: #7eb4e3;
+  
+}
+.ingredientInput {
+  width: 20rem;
+}
+.searchInput {
+  margin: 5px;
+  text-align: center;
+}
 .app-side {
   background-color: inherit;
   /*font-size: 30px;*/

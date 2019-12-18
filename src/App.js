@@ -3,8 +3,9 @@ import React, { Component } from "react";
 import catForkImg from "./images/catForkImg_square.png";
 import { CatPic } from "./components/CatPicComponent.js";
 import "./App.css";
-import SearchBox from "./Features/Recipes/Search/SearchBoxContainer";
+import RecipeSearchBox from "./Features/Recipes/Search/RecipeSearchBox";
 import RecipeList from "./Features/Recipes/components/RecipeList";
+import firebase from "firebase";
 require("dotenv").config();
 
 class App extends Component {
@@ -44,7 +45,7 @@ class App extends Component {
             This is a recipe search app based on ingredients you enter. Please
             separate them by a comma and enter at least two (2).{" "}
           </p>
-        <SearchBox />
+        <RecipeSearchBox />
 
         <RecipeList />
       </div>
