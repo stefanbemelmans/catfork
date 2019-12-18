@@ -8,23 +8,39 @@
 }
 
 .catforkLogo {
-  margin-top: 2.25rem;
-  margin-left: 2rem;
-  margin-right: 2rem;
+  margin: 2rem;
 }
 
-.catPicContainer {
+.main {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-
+  justify-content: center;
+  align-items: center;
 }
 
-.app-intro {
+.appIntroText {
   font-family: monospace;
   color: violet;
 }
-
+.catPicComponent {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  background-color: #7eb4e3;
+  align-items: center;
+}
+/*actual picture*/
+.catPic {
+  max-width: 30rem;
+  min-width: 25rem; 
+  height: auto; 
+  object-fit: contain;
+  margin: 1rem; 
+}
+.catFull {
+  height: 100%;
+  width: 100%;
+}
 .search {
   margin: 2rem;
   display: flex;
@@ -75,12 +91,6 @@
   border-width: 2px;
 }
 
-/*actual picture*/
-.catPic {
-  width: 100%; 
-  height: auto; 
-  object-fit: contain; 
-}
 .form {
   display: flex;
   flex-direction: column;
