@@ -14,9 +14,11 @@ export const RecipeSearchBox = () => {
     console.log("ingredients from searchInput: ", ingredients);
 
     // TODO: Clean the user entered ingredients, remove white space
+    var cleanedIngredientString = ingredients.split(",").map(x => x.trim()).toString();
+    console.log(cleanedIngredientString, "anything?")
     // These are async actions and they happen quickly So I decided to set flags anyway
     dispatch({ type: recipeActions.FETCH_RECIPES });
-    var searchString = recipeSearchUrlFactory(ingredients, numofRec);
+    var searchString = recipeSearchUrlFactory(cleanedIngredientString, numofRec);
     console.log("searchstring:", searchString);
     const recipes = await fetch(searchString, {
       headers: mashapeHeader
