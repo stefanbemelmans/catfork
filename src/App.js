@@ -6,7 +6,9 @@ import "./App.css";
 import RecipeSearchBox from "./Features/Recipes/Search/RecipeSearchBox";
 import RecipeList from "./Features/Recipes/components/RecipeList";
 import firebase from "firebase";
-require("dotenv").config();
+import firebaseConfig from "./Features/Firebase/firebaseConfig";
+
+firebase.initializeApp(firebaseConfig)
 
 class App extends Component {
   constructor(props) {
