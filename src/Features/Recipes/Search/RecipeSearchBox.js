@@ -9,8 +9,11 @@ export const RecipeSearchBox = () => {
   const dispatch = useDispatch();
   const [searchTerms, setSearchTerms] = useState("");
   const [numOfRecipes, setNumOfRecipes] = useState(10);
+  
   const GetRecipes = async (ingredients, numofRec) => {
     console.log("ingredients from searchInput: ", ingredients);
+
+    // TODO: Clean the user entered ingredients, remove white space
     // These are async actions and they happen quickly So I decided to set flags anyway
     dispatch({ type: recipeActions.FETCH_RECIPES });
     var searchString = recipeSearchUrlFactory(ingredients, numofRec);
