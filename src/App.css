@@ -20,6 +20,11 @@
 
 }
 
+.app-intro {
+  font-family: monospace;
+  color: violet;
+}
+
 .search {
   margin: 2rem;
   display: flex;
@@ -53,11 +58,7 @@
   margin-left: -77px;
 }
 
-.app-intro {
-  font-size: 1.25rem;
-  font-family: monospace;
-  color: violet;
-}
+
 
 #results {
   display: flex;
