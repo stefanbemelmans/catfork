@@ -1,4 +1,4 @@
-
+const dotenv = require("dotenv");
 
 // TODO: come up with a better naming convention. You search FOR recipes with ingredients
 //  then with a recipe you get an Individual recipe. This might do.
@@ -13,6 +13,10 @@ const recipeSearchMidUrl = "&limitLicense=false&number="
 const recipeSearchEndUrl = "&ranking=1";
 
 export const mashapeHeader = {"X-Mashape-Key": "YmReyxlVdYmshU5Dlyo9XYbBPZtep1KJPXujsnt4Hiueq8H23o"}
+
+// dotenv.MASHAPE_KEY}
+
+// 
 
 // Helper functions to return the search strings
 export const recipeSearchUrlFactory = (ingredientString, numOfRecipes) => recipeSearchBaseUrl + ingredientString + recipeSearchMidUrl + numOfRecipes + recipeSearchEndUrl

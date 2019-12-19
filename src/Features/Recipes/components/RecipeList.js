@@ -5,14 +5,18 @@ import { useDispatch, useSelector } from "react-redux";
 export const RecipeList = props => {
   let recipeList = useSelector(state => state.searchResults);
   console.log(recipeList);
+  let results;
+  if (!recipeList) {
+    console.log("No recipes");
+    results = <p>List Will Be here</p>;
+  } else {
+    results = recipeList.map(recipe => 
+      <RecipeComponent key={recipe.id} recipe={recipe} />
+    );
+  }
+  return results;
 
-
-  return (<p>List Will Be here</p>);
-  // if (!recipeList) {
-  //   console.log("No recipes");
-  //   return(
-  //   <p>No Recipes Yet</p>
-  //   );
+  //
   // } else {
   //   let recipeArray = recipeList.map(recipe => {
   //     <RecipeComponent key={recipe.id} recipe={recipe} />;

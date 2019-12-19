@@ -19,8 +19,11 @@ export const RecipeSearchBox = () => {
       .map(x => x.trim())
       .toString();
     console.log(cleanedIngredientString, "cleaned ingredients");
+    // Setting search ingredients after cleaning
+    dispatch({type: recipeActions.SET_SEARCH_TERMS, searchTerms: cleanedIngredientString})
     // These are async actions and they happen quickly So I decided to set flags anyway
     dispatch({ type: recipeActions.FETCH_RECIPES });
+
     var searchString = recipeSearchUrlFactory(
       cleanedIngredientString,
       numofRec
