@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function RecipeDetails(props) {
+export const RecipeDetails = (props) => {
  
   let ings = props.recipe.extendedIngredients.map((ing, i) => {
     return (

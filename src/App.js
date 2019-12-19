@@ -3,8 +3,8 @@ import React from "react";
 import catForkImg from "./images/catForkImg_square.png";
 import { CatPicComponent } from "./Features/CatPic/CatPicComponent";
 import "./App.css";
-import RecipeSearchBox from "./Features/Recipes/Search/RecipeSearchBox";
-import RecipeList from "./Features/Recipes/components/RecipeList";
+import { RecipeSearchBox } from "./Features/Recipes/Search/RecipeSearchBox";
+import { RecipeList } from "./Features/Recipes/components/RecipeList";
 import firebase from "firebase";
 import firebaseConfig from "./Features/Firebase/firebaseConfig";
 // TODO: remove bootstrap

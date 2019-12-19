@@ -5,6 +5,7 @@ import * as recipeActions from "../recipeActionTypes";
 import { useDispatch } from "react-redux";
 import { recipeSearchUrlFactory, mashapeHeader } from "../constants.js";
 
+// TODO: get search terms in redux state to display to the user
 export const RecipeSearchBox = () => {
   const dispatch = useDispatch();
   const [searchTerms, setSearchTerms] = useState("");
@@ -17,7 +18,7 @@ export const RecipeSearchBox = () => {
       .split(",")
       .map(x => x.trim())
       .toString();
-    console.log(cleanedIngredientString, "anything?");
+    console.log(cleanedIngredientString, "cleaned ingredients");
     // These are async actions and they happen quickly So I decided to set flags anyway
     dispatch({ type: recipeActions.FETCH_RECIPES });
     var searchString = recipeSearchUrlFactory(
@@ -64,4 +65,4 @@ export const RecipeSearchBox = () => {
     </div>
   );
 };
-export default RecipeSearchBox;
+

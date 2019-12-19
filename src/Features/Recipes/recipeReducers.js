@@ -1,10 +1,11 @@
-import * as actionType from "./recipeActionTypes"
+import * as actionType from "./recipeActionTypes";
 
 const initialState = {
   loading: false,
   isLoaded: false,
   searchResults: [],
   selectedRecipe: {},
+  searchTerms: "",
   error: {}
 };
 
@@ -22,6 +23,11 @@ const recipes = (state = initialState, action) => {
         isLoaded: true,
         searchResults: action.searchResults
       };
+    case actionType.SET_SEARCH_TERMS:
+      return {
+        ...state,
+        searchTerms: action.searchTerms
+      };
     case actionType.SET_INDIVIDUAL_RECIPE:
       return {
         ...state,
@@ -37,4 +43,4 @@ const recipes = (state = initialState, action) => {
   }
 };
 
-export default recipes
+export default recipes;
