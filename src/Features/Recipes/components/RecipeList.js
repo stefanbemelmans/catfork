@@ -2,7 +2,7 @@ import React from "react";
 import { RecipeComponent } from "./RecipeComponent";
 import { useDispatch, useSelector } from "react-redux";
 
-export const RecipeList = props => {
+export const RecipeList = () => {
   let recipeList = useSelector(state => state.searchResults);
   console.log(recipeList);
   let results;
@@ -10,11 +10,13 @@ export const RecipeList = props => {
     console.log("No recipes");
     results = <p>List Will Be here</p>;
   } else {
-    results = recipeList.map(recipe => 
-      <RecipeComponent key={recipe.id} recipe={recipe} />
-    );
+    results = recipeList.map(recipe => (
+      <div key={recipe.id} className="col">
+        <RecipeComponent recipe={recipe} />
+      </div>
+    ));
   }
-  return results;
+  return <div className="row">{results}</div>;
 
   //
   // } else {

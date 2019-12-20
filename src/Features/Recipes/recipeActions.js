@@ -25,10 +25,10 @@ export const setSearchTerms = searchTerms => {
   };
 };
 
-export const getIndividualRecipe = recipe => {
-  console.log("getting individ recipe", recipe);
+export const setRecipeDetails = recipe => {
+  console.log("getting recipe Details", recipe);
   return {
-    type: recipeActions.GET_INDIVIDUAL_RECIPE,
-    selectedRecipe: recipe
+    type: recipeActions.SET_RECIPE_DETAILS,
+    recipeDetails: recipe
   };
 };

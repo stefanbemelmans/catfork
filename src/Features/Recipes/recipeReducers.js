@@ -4,7 +4,7 @@ const initialState = {
   loading: false,
   isLoaded: false,
   searchResults: [],
-  selectedRecipe: {},
+  recipeDetails: {},
   searchTerms: "",
   error: {}
 };
@@ -28,10 +28,10 @@ const recipes = (state = initialState, action) => {
         ...state,
         searchTerms: action.searchTerms
       };
-    case actionType.SET_INDIVIDUAL_RECIPE:
+    case actionType.SET_RECIPE_DETAILS:
       return {
         ...state,
-        selectedRecipe: action.selectedRecipe
+        recipeDetails: action.recipeDetails
       };
     case actionType.RECIPE_SEARCH_ERROR:
       return {

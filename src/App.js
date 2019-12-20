@@ -35,8 +35,10 @@ export const App = () => {
       </div>
 
       <RecipeSearchBox />
+<div className="container-fluid"> 
 
       <RecipeList />
+</div>
     </div>
   );
 };

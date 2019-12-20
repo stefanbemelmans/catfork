@@ -24,6 +24,7 @@ export const CatPicComponent = props => {
   );
 };
 // Pass in the setCatPicUrl Hook
+// TODO: remove url magic string
 async function getCatPic(setCatPicUrl) {
   var response = await fetch(
     "https://thecatapi.com/api/images/get?format=src&size=med"

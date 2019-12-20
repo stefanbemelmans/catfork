@@ -5,36 +5,40 @@ import * as recipeActions from "../recipeActionTypes";
 import { useDispatch } from "react-redux";
 import { recipeSearchUrlFactory, mashapeHeader } from "../constants.js";
 
-// TODO: get search terms in redux state to display to the user
+// TODO: display search terms to the user
 export const RecipeSearchBox = () => {
   const dispatch = useDispatch();
   const [searchTerms, setSearchTerms] = useState("");
   const [numOfRecipes, setNumOfRecipes] = useState(10);
 
   const GetRecipes = async (ingredients, numofRec) => {
-    console.log("ingredients from searchInput: ", ingredients);
-
     var cleanedIngredientString = ingredients
       .split(",")
       .map(x => x.trim())
       .toString();
-    console.log(cleanedIngredientString, "cleaned ingredients");
     // Setting search ingredients after cleaning
-    dispatch({type: recipeActions.SET_SEARCH_TERMS, searchTerms: cleanedIngredientString})
+    dispatch({
+      type: recipeActions.SET_SEARCH_TERMS,
+      searchTerms: cleanedIngredientString
+    });
     // These are async actions and they happen quickly So I decided to set flags anyway
-    dispatch({ type: recipeActions.FETCH_RECIPES });
+    dispatch({
+       type: recipeActions.FETCH_RECIPES
+      });
 
     var searchString = recipeSearchUrlFactory(
       cleanedIngredientString,
       numofRec
     );
-    console.log("searchstring:", searchString);
+
     const recipes = await fetch(searchString, {
       headers: mashapeHeader
     });
     const parsedRecipes = await recipes.json();
-    console.log("parsed Recipe:", parsedRecipes);
-    dispatch({ type: recipeActions.SET_RECIPES, searchResults: parsedRecipes });
+    dispatch({ 
+      type: recipeActions.SET_RECIPES,
+      searchResults: parsedRecipes
+    });
   };
   return (
     <div id="search" className="search">
@@ -68,4 +72,3 @@ export const RecipeSearchBox = () => {
     </div>
   );
 };
-
