@@ -3,6 +3,7 @@ import React from "react";
 import catForkImg from "./images/catForkImg_square.png";
 import { CatPicComponent } from "./Features/CatPic/CatPicComponent";
 import "./App.css";
+import "./ResponsiveStyles.css";
 import { RecipeSearchBox } from "./Features/Recipes/Search/RecipeSearchBox";
 import { RecipeList } from "./Features/Recipes/components/RecipeList";
 import firebase from "firebase";
