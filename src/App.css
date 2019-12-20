@@ -5,8 +5,12 @@
   background: #3c3e63;
   padding: 2rem;
   flex-direction: column;
+  width: 100%;
 }
 
+.header {
+  
+}
 .catforkLogo {
   margin: 2rem;
 }
