@@ -8,7 +8,7 @@ const SpoonacularLink = "https://spoonacular.com/";
 
 export const CatForkHeader = () => {
   return (
-    <div className="m-2 p-3 text-center">
+    <div className="container-fluid text-center">
         
       <h3 className="appIntroText">
         {IntroText} <br />

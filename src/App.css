@@ -27,18 +27,18 @@
   color: violet;
 }
 .catPicComponent {
-  justify-content: space-evenly;
+  /* justify-content: center;
   display: flex;
-  flex-direction: row;
+  flex-direction: column; */
   background-color: #7eb4e3;
 }
 /*actual picture*/
 .catPic {
-  max-width: 30rem;
+  /* max-width: 30rem;
   min-width: 25rem; 
-  max-height: 50rem; 
-  object-fit: contain;
-  margin: 1rem;
+  max-height: 50rem;  */
+ background-size: contain;
+  /* margin: 1rem; */
   
 }
 /* .catFull {
@@ -55,18 +55,13 @@
 }
 
 .searchComponent {
-  border-width: 1px;
-  border-color: #1f063b;
-  padding: 2px;
-  margin: 1rem;
-  flex-direction: column;
+  background-color: #58d7ef;
 }
-.ingredientInput {
-  width: 20rem;
-}
+
 .searchInput {
-  margin: 5px;
   text-align: center;
+  font-size: x-large;
+  max-width: 100%;
 }
 .app-side {
   background-color: inherit;
@@ -159,7 +154,7 @@ button {
 }
 
 /* Mobile Styles */
-@media only screen and (max-width: 500px) {
+/* @media only screen and (max-width: 400px) {
   .catPicComponent {
     justify-content: center;
     display: flex;
@@ -169,7 +164,7 @@ button {
   .catPic {
     max-width: 10rem;
     /* min-width: 25rem;  */
-    object-fit: contain;
+    /* object-fit: contain;
 }
 .search {
   margin: 2rem;
@@ -179,10 +174,10 @@ button {
   justify-content: center;
   background-color: #7eb4e3;
 }
-}
+} */ 
 
 /* Tablet Styles */
-@media only screen and (min-width: 500px) and (max-width: 800px) {
+/* @media only screen and (min-width: 500px) and (max-width: 800px) {
   .appIntroText {
     font-family: monospace;
     color: rgb(26, 1, 26);
@@ -196,11 +191,11 @@ button {
   .catPic {
     max-width: 15rem;
     /* min-width: 25rem;  */
-    object-fit: contain;
+    /* object-fit: contain;
     
-  }
+  } */
 
-  .search {
+  /* .search {
     margin: 2rem;
     display: flex;
     flex-direction: column;
@@ -208,12 +203,12 @@ button {
     justify-content: space-evenly;
     background-color: #7eb4e3;
   }
-}
+} */
 
 /* Desktop Styles */
-@media only screen and (min-width: 801px) {
+/* @media only screen and (min-width: 801px) {
   .appIntroText {
     font-family: monospace;
     color: rgb(123, 243, 108);
   }
-}
+} */ 
