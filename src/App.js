@@ -17,7 +17,7 @@ export const App = () => {
   return (
     // TODO: change text for mobile
     // TODO: Cats eating salami background marquee, have the images
-    <div className="container-fluid justify-content-center">
+    <div className="app container-fluid justify-content-center">
       <CatForkHeader />
 
       <CatPicComponent />

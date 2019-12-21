@@ -1,6 +1,7 @@
 import React from "react";
 import CatForkLogo from "./CatForkLogo.png";
 
+
 const IntroText = "This is a recipe search app based on ingredients you enter.";
 const CatApiLink = "https://thecatapi.com";
 const SpoonacularLink = "https://spoonacular.com/";
@@ -16,7 +17,7 @@ export const CatForkHeader = () => {
         <a href={SpoonacularLink}>Spoonacular </a>
       </h3>
       <div className="m-2">
-        <img src={CatForkLogo} alt="Logo" className="w-100 h-100" />
+        <img src={CatForkLogo} alt="Logo" />
       </div>
     </div>
   );
