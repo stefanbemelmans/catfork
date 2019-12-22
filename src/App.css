@@ -1,11 +1,11 @@
 .app {
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   background: #3c3e63;
-  padding: 2rem;
+  /* padding: 2rem;
   flex-direction: column;
-  width: 100%;
+  width: 100%; */
 }
 
 .header {
@@ -34,9 +34,8 @@
 }
 /*actual picture*/
 .catPic {
-  /* max-width: 30rem;
-  min-width: 25rem; 
-  max-height: 50rem;  */
+  max-width: 300px;
+ height:auto;
  background-size: contain;
   /* margin: 1rem; */
   

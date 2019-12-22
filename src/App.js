@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import React from "react";
 
-import { CatForkHeader } from "./Features/Header/HeaderComponent";
+import { CatForkHeader } from "./Features/Header/CatForkHeader";
 import { CatPicComponent } from "./Features/CatPic/CatPicComponent";
 import { RecipeSearchBox } from "./Features/Recipes/Search/RecipeSearchBox";
 import { RecipeList } from "./Features/Recipes/components/RecipeList";

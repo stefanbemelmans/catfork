@@ -48,7 +48,7 @@ export const RecipeSearchBox = () => {
 
     <Container>
       <Row>
-        <Col sm={4} xs={12}>
+        <Col xs={12} sm={4}>
           <div className="searchComponent m-2 p-2">
             <h3 className="inputLabel">Number Of Recipes</h3>
             <input
