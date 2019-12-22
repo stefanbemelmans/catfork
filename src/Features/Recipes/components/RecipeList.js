@@ -1,7 +1,7 @@
 import React from "react";
 import { RecipeComponent } from "./RecipeComponent";
 import { useDispatch, useSelector } from "react-redux";
-
+import Col from "react-bootstrap/Col";
 export const RecipeList = () => {
   let recipeList = useSelector(state => state.searchResults);
   console.log(recipeList);
@@ -10,27 +10,12 @@ export const RecipeList = () => {
     console.log("No recipes");
     results = <p>List Will Be here</p>;
   } else {
-    results = recipeList.map(recipe => (
-      <div key={recipe.id} className="col">
+    results = recipeList.map(recipe => 
+      <Col xs={12} sm={4} md={3} key={recipe.id} className="text-center mb-2">
         <RecipeComponent recipe={recipe} />
-      </div>
-    ));
+      </Col>
+    );
   }
-  return <div className="row">{results}</div>;
-
-  //
-  // } else {
-  //   let recipeArray = recipeList.map(recipe => {
-  //     <RecipeComponent key={recipe.id} recipe={recipe} />;
-  //   });
-  //   return recipeArray;
-  // }
-
-  // recipeList = recipeList
-  //   ? recipeList.map(recipe => {
-  //       <RecipeComponent key={recipe.id} recipe={recipe} />;
-  //     })
-  //   : "No Recipes Yet";
-
-  // return recipeList;
+  return <div className="row">{results}</div>
 };
+

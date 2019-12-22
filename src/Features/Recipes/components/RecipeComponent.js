@@ -35,7 +35,7 @@ export const RecipeComponent = props => {
   };
 
   return (
-    <Card style={{ width: "auto" }}>
+    <Card style={{ width: "100%" }}>
       <Card.Img variant="top" src={recipe.image} />
       <Card.Body>
         <Card.Title>{recipe.title}</Card.Title>
