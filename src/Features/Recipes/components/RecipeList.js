@@ -12,7 +12,7 @@ export const RecipeList = () => {
   } else {
     results = recipeList.map(recipe => 
       <Col xs={12} sm={4} md={3} key={recipe.id} className="text-center mb-2">
-        <RecipeComponent recipe={recipe} />
+        {/* <RecipeComponent recipe={recipe} /> */}
       </Col>
     );
   }

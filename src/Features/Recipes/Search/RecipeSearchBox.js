@@ -10,7 +10,7 @@ import Container from "react-bootstrap/Container";
 
 export const RecipeSearchBox = () => {
   const dispatch = useDispatch();
-  const [searchTerms, setSearchTerms] = useState("");
+  const [searchTerms, setSearchTerms] = useState("peppers, onions");
   const [numOfRecipes, setNumOfRecipes] = useState(10);
 
   const GetRecipes = async (ingredients, numberOfRecipes) => {
@@ -68,7 +68,9 @@ export const RecipeSearchBox = () => {
             <input
               className="searchInput ingredientInput"
               type="text"
-              placeholder="chicken, peppers, garlic"
+              value={searchTerms}
+              // placeholder="chicken, peppers, garlic"
+              onFocus={() => setSearchTerms("")}
               onChange={e => setSearchTerms(e.target.value)}
             />
           </div>
