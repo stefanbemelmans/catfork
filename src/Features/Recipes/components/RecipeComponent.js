@@ -13,7 +13,7 @@ import * as recipeActions from "../recipeActionTypes";
 export const RecipeComponent = props => {
   const dispatch = useDispatch();
   const [showDetails, toggleShowDetails] = useState(false);
-  console.log(props, "in recipeComponent");
+  // console.log(props, "in recipeComponent");
 
   var recipe = props.recipe;
 
@@ -43,7 +43,7 @@ export const RecipeComponent = props => {
       <Card.Body>
         <Card.Title>{recipe.title}</Card.Title>
         <Card.Text>
-          Used Ingredients: {recipe.usedIngredients}
+          Used Ingredients: {recipe.usedIngredients.length}
           Missing Ingredients: {recipe.missedIngredientCount}
         </Card.Text>
         <Card.Text>Likes: {recipe.likes}</Card.Text>
