@@ -82,6 +82,12 @@ export const RecipeSearchBox = () => {
             >
               Search!
             </button>
+            <button
+              type="reset"
+              title="Clear Results"
+              // TODO: finish clear search results action
+              onClick={() => dispatch({type: recipeActions.CLEAR_SEARCH}) }
+              >Clear Results</button>
           </div>
         </Col>
       </Row>

@@ -24,14 +24,17 @@ export const RecipeComponent = props => {
     var recipeDetails =  await fetch(RecipeDetailsSearchString, {
       headers: mashapeHeader
     });
+
     // Parse the details out of the Promise 
     const parsedRecipeDetails = await recipeDetails.json();
 
-    console.log(parsedRecipeDetails, "in fetch, should be object not promise")
+    console.log(parsedRecipeDetails, "should be object not promise")
     dispatch({
       type: recipeActions.SET_RECIPE_DETAILS,
       recipeDetails: parsedRecipeDetails
     });
+    // TODO: GET recipe method
+
   };
 
   return (
@@ -40,7 +43,7 @@ export const RecipeComponent = props => {
       <Card.Body>
         <Card.Title>{recipe.title}</Card.Title>
         <Card.Text>
-          Used Ingredients: {recipe.usedIngredient}
+          Used Ingredients: {recipe.usedIngredients}
           Missing Ingredients: {recipe.missedIngredientCount}
         </Card.Text>
         <Card.Text>Likes: {recipe.likes}</Card.Text>
@@ -50,17 +53,6 @@ export const RecipeComponent = props => {
         >
           Get Recipe Details
         </Button>
-        {/* <Card.Subtitle className="mb-2 text-muted">By: {recipe.sourceName}</Card.Subtitle>
-        <Card.Text>
-        Some quick example text to build on the card title and make up the
-        bulk of the cards content.
-      </Card.Text> */}
-        {/* <Card.Link href={recipe.sourceUrl} targe="blank">
-          Original Source: {recipe.sourceName}
-          </Card.Link>
-          <Card.Link href={recipe.spoonacularSourceUrl}>
-          Spoonacular Content
-        </Card.Link> */}
       </Card.Body>
     </Card>
   );

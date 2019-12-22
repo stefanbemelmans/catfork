@@ -32,3 +32,10 @@ export const setRecipeDetails = recipe => {
     recipeDetails: recipe
   };
 };
+
+export const clearSearchResults = () => {
+  console.log("clearing search results action")
+  return {
+    type: recipeActions.CLEAR_SEARCH,
+  }
+}

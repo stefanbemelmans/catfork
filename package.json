@@ -35,7 +35,6 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://127.0.0.0:3001",
   "browserslist": {
     "production": [
       ">0.2%",
@@ -47,5 +46,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "https://localhost:4000"
 }

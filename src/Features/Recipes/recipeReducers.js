@@ -16,6 +16,7 @@ const recipes = (state = initialState, action) => {
         ...state,
         loading: true
       };
+      // TODO: name change to "SET_RECIPE_SEARCH_RESULTS"
     case actionType.SET_RECIPES:
       return {
         ...state,
@@ -33,6 +34,10 @@ const recipes = (state = initialState, action) => {
         ...state,
         recipeDetails: action.recipeDetails
       };
+      case actionType.CLEAR_SEARCH:
+        return {
+          state: initialState
+        };
     case actionType.RECIPE_SEARCH_ERROR:
       return {
         ...state,
