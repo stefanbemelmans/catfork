@@ -1,20 +1,34 @@
-// import React from "react";
+import React from "react";
+import { useSelector } from "react-redux";
+import Button from "react-bootstrap/Button";
+export const RecipeDetails = props => {
+  const recipeDetails = useSelector(state => state.recipeDetails);
+  let ingredientList = "No Details";
+  return (
+    <div>
+      <Button variant="outline-primary" onClick={() => props.toggleDetails()} />
+      {recipeDetails
+        ? (ingredientList = recipeDetails.extendedIngredients.map((ing, i) => {
+            return (
+              <div key={i} className="d-flex p-1 flex-column w-auto clear-fix">
+                <ul>
+                  <li>{ing.originalString}</li>
+                </ul>
+              </div>
+            );
+          }))
+        : ingredientList}
+    </div>
+  );
+};
+// let method = props.recipe.analyzedInstructions[0].steps.map((step, i) => {
+//   return (
+//     <li key={i}>
+//       step:{step.number} {step.step}
+//     </li>
+//   );
+// });
 
-// export const RecipeDetails = (props) => {
- 
-//   let ings = props.recipe.extendedIngredients.map((ing, i) => {
-//     return (
-    
-//       <li key={i}>`${ing.originalString}`</li>
-//     );
-//   })
-  
-//   let method = props.recipe.analyzedInstructions[0].steps.map((step,i) => {
-//     return(
-//     <li key={i}>step:{step.number}  {step.step}</li>
-//     );
-//   });
-  
 //   return (
 //     <div className="recipeIns">
 //       <ul>{ings}</ul>
@@ -22,7 +36,5 @@
 //         <ul>{method}</ul>
 //       </div>
 //     </div>
-
 //   );
-
-// }
+// };

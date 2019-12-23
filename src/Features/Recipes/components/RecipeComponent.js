@@ -13,28 +13,29 @@ import * as recipeActions from "../recipeActionTypes";
 export const RecipeComponent = props => {
   const dispatch = useDispatch();
   const [showDetails, toggleShowDetails] = useState(false);
-  // console.log(props, "in recipeComponent");
-
   var recipe = props.recipe;
 
+  const toggleRecipeDetails = () => {
+    toggleShowDetails(!showDetails);
+  };
   const fetchRecipeDetails = async id => {
     // Get the search string from the factory
     var RecipeDetailsSearchString = getRecipeDetailsUrlFactory(id);
     // Get the details
-    var recipeDetails =  await fetch(RecipeDetailsSearchString, {
+    var recipeDetails = await fetch(RecipeDetailsSearchString, {
       headers: mashapeHeader
     });
 
-    // Parse the details out of the Promise 
+    // Parse the details out of the Promise
     const parsedRecipeDetails = await recipeDetails.json();
 
-    console.log(parsedRecipeDetails, "should be object not promise")
+    console.log(parsedRecipeDetails, "should be object not promise");
     dispatch({
       type: recipeActions.SET_RECIPE_DETAILS,
       recipeDetails: parsedRecipeDetails
     });
+    toggleRecipeDetails()
     // TODO: GET recipe method
-
   };
 
   return (
@@ -42,20 +43,22 @@ export const RecipeComponent = props => {
       <Card.Img variant="top" src={recipe.image} />
       <Card.Body>
         <Card.Title>{recipe.title}</Card.Title>
+        <Card.Text>Used Ingredients: {recipe.usedIngredients.length}</Card.Text>
         <Card.Text>
-          Used Ingredients: {recipe.usedIngredients.length}
           Missing Ingredients: {recipe.missedIngredientCount}
         </Card.Text>
         <Card.Text>Likes: {recipe.likes}</Card.Text>
-        <Button
-          variant="outline-primary"
-          onClick={() => fetchRecipeDetails(recipe.id)}
-        >
-          Get Recipe Details
-        </Button>
+        {!showDetails ? (
+          <Button
+            variant="outline-primary"
+            onClick={() => fetchRecipeDetails(recipe.id)}
+          >
+            Get Recipe Details
+          </Button>
+        ) : (
+          <RecipeDetails toggleDetails={toggleRecipeDetails} />
+        )}
       </Card.Body>
     </Card>
   );
 };
-
-

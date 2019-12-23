@@ -1,10 +1,14 @@
+/* eslint-disable no-undef */
 import React, { useState, useEffect } from "react";
 import Image from "react-bootstrap/Image";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
+const dotenv = require("dotenv");
+dotenv.config();
 
-// import { CatPic } from "./CatPic";
+const CatPicSearchString = "https://thecatapi.com/api/images/get?format=src&size=med"
+const CatApiHeader = {"x-api-key" : process.env.CAT_API_KEY }
 
 export const CatPicComponent = () => {
   const [catPicUrl, setCatPicUrl] = useState("");
@@ -34,8 +38,11 @@ export const CatPicComponent = () => {
 // Pass in the setCatPicUrl Hook
 // TODO: remove url magic string
 async function getCatPic(setCatPicUrl) {
-  var response = await fetch(
-    "https://thecatapi.com/api/images/get?format=src&size=med"
+  var response = await fetch(CatPicSearchString,
+    {
+      headers: CatApiHeader
+    }
+    
   );
   setCatPicUrl(response.url);
 }
