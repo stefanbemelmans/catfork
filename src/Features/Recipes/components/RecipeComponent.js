@@ -3,39 +3,44 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from "react";
 import { RecipeDetails } from "./RecipeDetails";
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
 import { getRecipeDetailsUrlFactory, mashapeHeader } from "../constants";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import * as recipeActions from "../recipeActionTypes";
+// import * as recipeActions from "../recipeActionTypes";
 
 // refactoring for hooks as well as general upkeep.
 export const RecipeComponent = props => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [showDetails, toggleShowDetails] = useState(false);
+  const [recipeDetails, setRecipeDetails] = useState(null);
   var recipe = props.recipe;
 
   const toggleRecipeDetails = () => {
     toggleShowDetails(!showDetails);
   };
+
   const fetchRecipeDetails = async id => {
-    // Get the search string from the factory
-    var RecipeDetailsSearchString = getRecipeDetailsUrlFactory(id);
-    // Get the details
-    var recipeDetails = await fetch(RecipeDetailsSearchString, {
-      headers: mashapeHeader
-    });
+    if (!recipeDetails) {
+      // Get the search string from the factory
+      var RecipeDetailsSearchString = getRecipeDetailsUrlFactory(id);
+      // Get the details
+      var recipeDetails = await fetch(RecipeDetailsSearchString, {
+        headers: mashapeHeader
+      });
 
-    // Parse the details out of the Promise
-    const parsedRecipeDetails = await recipeDetails.json();
-
-    console.log(parsedRecipeDetails, "should be object not promise");
-    dispatch({
-      type: recipeActions.SET_RECIPE_DETAILS,
-      recipeDetails: parsedRecipeDetails
-    });
-    toggleRecipeDetails()
-    // TODO: GET recipe method
+      // Parse the details out of the Promise
+      const parsedRecipeDetails = await recipeDetails.json();
+      console.log(parsedRecipeDetails, "should be object not promise");
+      // setting local state
+      setRecipeDetails(parsedRecipeDetails);
+      // gonna try to store the recipe details in the local component state
+      // dispatch({
+      //   type: recipeActions.SET_RECIPE_DETAILS,
+      //   recipeDetails: parsedRecipeDetails
+      // });
+      // toggleRecipeDetails();
+    }
   };
 
   return (
@@ -48,7 +53,8 @@ export const RecipeComponent = props => {
           Missing Ingredients: {recipe.missedIngredientCount}
         </Card.Text>
         <Card.Text>Likes: {recipe.likes}</Card.Text>
-        {!showDetails ? (
+
+        {!recipeDetails ? (
           <Button
             variant="outline-primary"
             onClick={() => fetchRecipeDetails(recipe.id)}
@@ -56,7 +62,18 @@ export const RecipeComponent = props => {
             Get Recipe Details
           </Button>
         ) : (
-          <RecipeDetails toggleDetails={toggleRecipeDetails} />
+          <Button
+            variant="outline-primary"
+            onClick={() => toggleRecipeDetails()}
+          >
+            Show Recipe Details
+          </Button>
+        )}
+        {showDetails && recipeDetails && (
+          <RecipeDetails
+            recipeDetails={recipeDetails}
+            toggleDetails={toggleRecipeDetails}
+          />
         )}
       </Card.Body>
     </Card>

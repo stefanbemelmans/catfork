@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 export const RecipeDetails = props => {
   const recipeDetails = useSelector(state => state.recipeDetails);
   let ingredientList = "No Details";
-  let method = recipeDetails.analyzedInstructions[0].steps.map((step, i) => {
+  let method = props.recipeDetails.analyzedInstructions[0].steps.map((step, i) => {
       return (
         <li key={i}>
           step:{step.number} {step.step}
