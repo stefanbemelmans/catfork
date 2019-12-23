@@ -11,7 +11,9 @@ const recipeSearchBaseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mash
 const recipeSearchMidUrl = "&limitLicense=false&number=" 
 const recipeSearchEndUrl = "&ranking=1";
 
-export const mashapeHeader = process.env.MASHAPE_KEY
+export const mashapeHeader = {"X-Mashape-Key": "YmReyxlVdYmshU5Dlyo9XYbBPZtep1KJPXujsnt4Hiueq8H23o"}
+
+// process.env.MASHAPE_KEY
 
 // "X-Mashape-Key": "YmReyxlVdYmshU5Dlyo9XYbBPZtep1KJPXujsnt4Hiueq8H23o"}
 

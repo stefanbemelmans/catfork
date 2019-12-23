@@ -4,8 +4,16 @@ import Button from "react-bootstrap/Button";
 export const RecipeDetails = props => {
   const recipeDetails = useSelector(state => state.recipeDetails);
   let ingredientList = "No Details";
+  let method = recipeDetails.analyzedInstructions[0].steps.map((step, i) => {
+      return (
+        <li key={i}>
+          step:{step.number} {step.step}
+        </li>
+      );
+    });
   return (
     <div>
+      {/* rethink the structure and state management of RecipeList => Recipe Details */}
       <Button variant="outline-primary" onClick={() => props.toggleDetails()} />
       {recipeDetails
         ? (ingredientList = recipeDetails.extendedIngredients.map((ing, i) => {
