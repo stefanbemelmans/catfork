@@ -28,18 +28,11 @@ export const RecipeComponent = props => {
       var recipeDetails = await fetch(RecipeDetailsSearchString, {
         headers: mashapeHeader
       });
-
       // Parse the details out of the Promise
       const parsedRecipeDetails = await recipeDetails.json();
       console.log(parsedRecipeDetails, "should be object not promise");
       // setting local state
       setRecipeDetails(parsedRecipeDetails);
-      // gonna try to store the recipe details in the local component state
-      // dispatch({
-      //   type: recipeActions.SET_RECIPE_DETAILS,
-      //   recipeDetails: parsedRecipeDetails
-      // });
-      // toggleRecipeDetails();
     }
   };
 
@@ -66,7 +59,7 @@ export const RecipeComponent = props => {
             variant="outline-primary"
             onClick={() => toggleRecipeDetails()}
           >
-            Show Recipe Details
+           {showDetails ? "Hide " : "Show "}Recipe Details
           </Button>
         )}
         {showDetails && recipeDetails && (
