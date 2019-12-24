@@ -69,7 +69,6 @@ export const RecipeSearchBox = () => {
               className="searchInput ingredientInput"
               type="text"
               value={searchTerms}
-              // placeholder="chicken, peppers, garlic"
               onFocus={() => setSearchTerms("")}
               onChange={e => setSearchTerms(e.target.value)}
             />
