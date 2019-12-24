@@ -4,9 +4,11 @@ import Image from "react-bootstrap/Image";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
+import Axios from "axios";
 const dotenv = require("dotenv");
 dotenv.config();
 
+const serverCatString = "http://localhost:3001/api/getCat"
 const CatPicSearchString = "https://thecatapi.com/api/images/get?format=src&size=med"
 const CatApiHeader = {"x-api-key" : process.env.CAT_API_KEY }
 
@@ -38,11 +40,12 @@ export const CatPicComponent = () => {
 // Pass in the setCatPicUrl Hook
 // TODO: remove url magic string
 async function getCatPic(setCatPicUrl) {
-  var response = await fetch(CatPicSearchString,
+  var response = await Axios(CatPicSearchString,
     {
       headers: CatApiHeader
     }
     
   );
-  setCatPicUrl(response.url);
+  console.log(response, "response from serverCat")
+  setCatPicUrl(response.data);
 }
