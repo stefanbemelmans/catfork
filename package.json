@@ -22,7 +22,6 @@
     "eslint-plugin-react": "^7.3.0",
     "react-scripts": "3.2.0"
   },
-  
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
