@@ -18,7 +18,8 @@ module.exports = exports = {
     },
 
     "plugins": [
-        "react"
+        "react",
+        "react-hooks"
     ],
     "extends": [
         // "eslint:recommended",
@@ -31,7 +32,9 @@ module.exports = exports = {
         "react/display-name": 1,
         "no-unused-vars": "warn",
         "no-console": 1,
-        "no-unexpected-multiline": "warn"
+        "no-unexpected-multiline": "warn",
+        "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+        "react-hooks/exhaustive-deps": "warn" // Checks effect dependencies
         },
     }
 

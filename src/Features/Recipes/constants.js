@@ -1,12 +1,11 @@
-
-
-// TODO: come up with a better naming convention. You search FOR recipes with ingredients
-//  then with a recipe you get an Individual recipe. This might do.
+/* eslint-disable no-undef */
+const dotenv = require("dotenv");
+dotenv.config();
 
 // Broke the URL's into pieces to easier insert the url vars. 
 
-const getIndividualRecipeBaseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/";
-const getIndividualRecipeEndUrl = "/information?includeNutrition=false";
+const getRecipeDetailsBaseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/";
+const getRecipeDetailsEndUrl = "/information?includeNutrition=false";
 
 const recipeSearchBaseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=";
 const recipeSearchMidUrl = "&limitLicense=false&number=" 
@@ -14,6 +13,14 @@ const recipeSearchEndUrl = "&ranking=1";
 
 export const mashapeHeader = {"X-Mashape-Key": "YmReyxlVdYmshU5Dlyo9XYbBPZtep1KJPXujsnt4Hiueq8H23o"}
 
+// process.env.MASHAPE_KEY
+
+// "X-Mashape-Key": "YmReyxlVdYmshU5Dlyo9XYbBPZtep1KJPXujsnt4Hiueq8H23o"}
+
+// process.env.MASHAPE_KEY}
+
+// 
+
 // Helper functions to return the search strings
 export const recipeSearchUrlFactory = (ingredientString, numOfRecipes) => recipeSearchBaseUrl + ingredientString + recipeSearchMidUrl + numOfRecipes + recipeSearchEndUrl
-export const getIndividualRecipeUrlFactory = (recipeId) => getIndividualRecipeBaseUrl + recipeId + getIndividualRecipeEndUrl
+export const getRecipeDetailsUrlFactory = (recipeId) => getRecipeDetailsBaseUrl + recipeId + getRecipeDetailsEndUrl

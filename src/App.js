@@ -1,58 +1,41 @@
 /* eslint-disable no-undef */
-import React, { Component } from "react";
-import catForkImg from "./images/catForkImg_square.png";
-import { CatPic } from "./components/CatPicComponent.js";
-import "./App.css";
-import RecipeSearchBox from "./Features/Recipes/Search/RecipeSearchBox";
-import RecipeList from "./Features/Recipes/components/RecipeList";
+import React from "react";
+
+import { CatForkHeader } from "./Features/Header/CatForkHeader";
+import { CatPicComponent } from "./Features/CatPic/CatPicComponent";
+import { RecipeSearchBox } from "./Features/Recipes/Search/RecipeSearchBox";
+import { RecipeList } from "./Features/Recipes/components/RecipeList";
+import { useSelector } from "react-redux";
 import firebase from "firebase";
 import firebaseConfig from "./Features/Firebase/firebaseConfig";
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-firebase.initializeApp(firebaseConfig)
+firebase.initializeApp(firebaseConfig);
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      catUrl: null
-    };
-    this.getCatPic();
-  }
+export const App = () => {
+  // let flags = useSelector(state => state);
+  // let loading = flags.loading;
+  // let isLoading = flags.isLoading;
+  // let error = flags.error;
+  return (
+    // TODO: Cats eating salami background marquee, have the images
+    <div className="app container-fluid justify-content-center">
+      {/* <div>
+        <h3>Recipes Loading: {loading} </h3>
+        <h3>Recipes isLoading: {isLoading} </h3>
+        <h3>Recipes Error: {error} </h3>
+      </div> */}
+      <CatForkHeader />
 
-  async getCatPic() {
-    var response = await fetch(
-      "https://thecatapi.com/api/images/get?format=src&size=med"
-    );
-    // eslint-disable-next-line no-console
-    console.log("hitting getnew cat", response);
-    this.setState({
-      catUrl: response.url
-    });
-  }
+      <CatPicComponent />
 
-  render() {
-    return (
-      <div className="app">
-        <div className="catPicContainer">
-         <div>
-            <img className="catforkLogo" src={catForkImg} alt="logo" />
-         </div>
-          <CatPic catUrl={this.state.catUrl} />
-          <button className="btn-class" onClick={this.getCatPic.bind(this)}>
-            New Cat
-          </button>
-        </div>
-          <p className="app-intro">
-            {" "}
-            This is a recipe search app based on ingredients you enter. Please
-            separate them by a comma and enter at least two (2).{" "}
-          </p>
-        <RecipeSearchBox />
-
+      <RecipeSearchBox />
+      <div className="container-fluid">
         <RecipeList />
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default App;

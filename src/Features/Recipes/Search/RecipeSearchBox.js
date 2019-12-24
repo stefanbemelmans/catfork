@@ -3,54 +3,95 @@
 import React, { useState } from "react";
 import * as recipeActions from "../recipeActionTypes";
 import { useDispatch } from "react-redux";
-import {recipeSearchUrlFactory, mashapeHeader} from "../constants.js";
+import { recipeSearchUrlFactory, mashapeHeader } from "../constants.js";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/Container";
 
 export const RecipeSearchBox = () => {
   const dispatch = useDispatch();
-  const [searchTerms, setSearchTerms] = useState("");
+  const [searchTerms, setSearchTerms] = useState("peppers, onions");
   const [numOfRecipes, setNumOfRecipes] = useState(10);
-  
-  const GetRecipes = async (ingredients, numofRec) => {
-    console.log("ingredients from searchInput: ", ingredients);
 
-    // TODO: Clean the user entered ingredients, remove white space
-    // These are async actions and they happen quickly So I decided to set flags anyway
-    dispatch({ type: recipeActions.FETCH_RECIPES });
-    var searchString = recipeSearchUrlFactory(ingredients, numofRec);
-    console.log("searchstring:", searchString);
+  const GetRecipes = async (ingredients, numberOfRecipes) => {
+    var cleanedIngredientString = ingredients
+      .split(",")
+      .map(x => x.trim())
+      .toString();
+
+    // Setting search ingredients after cleaning
+    // TODO: add searchTerm validation 
+    
+    dispatch({
+      type: recipeActions.SET_SEARCH_TERMS,
+      searchTerms: cleanedIngredientString
+    });
+    // Sets the flag in state that recipe fetch has started
+    dispatch({
+      type: recipeActions.FETCH_RECIPES
+    });
+
+    var searchString = recipeSearchUrlFactory(
+      cleanedIngredientString,
+      numberOfRecipes
+    );
+
     const recipes = await fetch(searchString, {
       headers: mashapeHeader
     });
     const parsedRecipes = await recipes.json();
-    console.log("parsed Recipe:", parsedRecipes);
-    dispatch({type:recipeActions.SET_RECIPES, searchResults: parsedRecipes});
+    // sets recipes in redux
+    dispatch({
+      type: recipeActions.SET_RECIPES,
+      searchResults: parsedRecipes
+    });
   };
   return (
-    <div id="search" className="search">
-      <div style={{flexDirection: "row"}}>
-
-      <input
-        className="searchInput"
-        type="number"
-        placeholder="10"
-        onChange={e => setNumOfRecipes(e.target.value)}
-        />
-      <input
-        className="searchInput ingredientInput" 
-        type="text"
-        placeholder="Enter comma separated ingredients..."
-        onChange={e => setSearchTerms(e.target.value)}
-        />
-      {/* TODO: add searchTerm validation */}
-      </div>
-      <button
-        type="submit"
-        title="Search"
-        onClick={() => GetRecipes(searchTerms, numOfRecipes)}
-      >
-        Search!
-      </button>
-    </div>
+    <Container>
+      <Row>
+        <Col xs={12} sm={4}>
+          <div className="searchComponent m-2 p-2">
+            <h3 className="inputLabel">Number Of Recipes</h3>
+            <input
+              id="numOfRecipeInput"
+              className="searchInput"
+              type="number"
+              placeholder="10"
+              onChange={e => setNumOfRecipes(e.target.value)}
+            />
+          </div>
+        </Col>
+        <Col sm={4} xs={12}>
+          <div className="searchComponent m-2 p-2">
+            <h3>Enter Ingredients</h3>
+            <h6>Separated By A Comma</h6>
+            <input
+              className="searchInput ingredientInput"
+              type="text"
+              value={searchTerms}
+              onFocus={() => setSearchTerms("")}
+              onChange={e => setSearchTerms(e.target.value)}
+            />
+          </div>
+        </Col>
+        <Col sm={4} xs={12} className="mb-2">
+          <div className="w-100 text-center">
+            <button
+              type="submit"
+              title="Search"
+              onClick={() => GetRecipes(searchTerms, numOfRecipes)}
+            >
+              Search!
+            </button>
+            <button
+              type="reset"
+              title="Clear Results"
+              // TODO: finish clear search results action
+              onClick={() => dispatch({type: recipeActions.CLEAR_SEARCH}) }
+              >Clear Results</button>
+          </div>
+        </Col>
+      </Row>
+    </Container>
   );
 };
-export default RecipeSearchBox;
