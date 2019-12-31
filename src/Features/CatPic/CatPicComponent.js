@@ -24,7 +24,7 @@ export const CatPicComponent = () => {
     <Container className="mb-1">
       <Row className="catPicComponent">
         <Col xs={12} sm={6} className="text-center">
-          <Image src={catPicUrl} alt="logo" className="m-1 catPic" />
+          <Image src={catPicUrl} alt="ServerCat is sending a cat... wait for it..." className="m-1 catPic" />
         </Col>
         <Col xs={12} sm={6} className="text-center">
           <button className="btn-class" onClick={() => getCatPic(setCatPicUrl)}>
