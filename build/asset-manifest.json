@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/catfork/static/css/main.71844ba9.chunk.css",
+    "main.js": "/catfork/static/js/main.1e999162.chunk.js",
+    "main.js.map": "/catfork/static/js/main.1e999162.chunk.js.map",
+    "runtime-main.js": "/catfork/static/js/runtime-main.a0751c17.js",
+    "runtime-main.js.map": "/catfork/static/js/runtime-main.a0751c17.js.map",
+    "static/css/2.17e5ed98.chunk.css": "/catfork/static/css/2.17e5ed98.chunk.css",
+    "static/js/2.667f06fe.chunk.js": "/catfork/static/js/2.667f06fe.chunk.js",
+    "static/js/2.667f06fe.chunk.js.map": "/catfork/static/js/2.667f06fe.chunk.js.map",
+    "index.html": "/catfork/index.html",
+    "precache-manifest.29b1206192b266a4849d67a4b497d425.js": "/catfork/precache-manifest.29b1206192b266a4849d67a4b497d425.js",
+    "service-worker.js": "/catfork/service-worker.js",
+    "static/css/2.17e5ed98.chunk.css.map": "/catfork/static/css/2.17e5ed98.chunk.css.map",
+    "static/css/main.71844ba9.chunk.css.map": "/catfork/static/css/main.71844ba9.chunk.css.map",
+    "static/media/CatForkLogo.png": "/catfork/static/media/CatForkLogo.5d6f0df5.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a0751c17.js",
+    "static/css/2.17e5ed98.chunk.css",
+    "static/js/2.667f06fe.chunk.js",
+    "static/css/main.71844ba9.chunk.css",
+    "static/js/main.1e999162.chunk.js"
+  ]
+}
