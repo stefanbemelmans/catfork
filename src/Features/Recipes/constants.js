@@ -11,7 +11,10 @@ const recipeSearchBaseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mash
 const recipeSearchMidUrl = "&limitLicense=false&number=" 
 const recipeSearchEndUrl = "&ranking=1";
 
-export const mashapeHeader = {"X-Mashape-Key": "YmReyxlVdYmshU5Dlyo9XYbBPZtep1KJPXujsnt4Hiueq8H23o"}
+export const mashapeHeader = {
+    "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+    "x-rapidapi-Key": "YmReyxlVdYmshU5Dlyo9XYbBPZtep1KJPXujsnt4Hiueq8H23o"
+}
 
 // process.env.MASHAPE_KEY
 
