@@ -4,10 +4,11 @@
 import React, { useState, useEffect } from "react";
 import { RecipeDetails } from "./RecipeDetails";
 // import { useDispatch, useSelector } from "react-redux";
-import { getRecipeDetailsUrlFactory, mashapeHeader } from "../constants";
+import { getRecipeDetailsUrlFactory } from "../constants";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 // import * as recipeActions from "../recipeActionTypes";
+const recipeDetailBaseUrl = "http://localhost:5000/api/recipeDetail/?id=";
 
 // refactoring for hooks as well as general upkeep.
 export const RecipeComponent = props => {
@@ -22,19 +23,11 @@ export const RecipeComponent = props => {
 
   const fetchRecipeDetails = async id => {
     if (!recipeDetails) {
-      // Get the search string from the factory
-      var RecipeDetailsSearchString = getRecipeDetailsUrlFactory(id);
-      // Get the details
-      var recipeDetails = await fetch(RecipeDetailsSearchString, {
-        headers: mashapeHeader
-      });
-      // Parse the details out of the Promise
-      const parsedRecipeDetails = await recipeDetails.json();
+      var freshRecipeDetails = await fetch(recipeDetailBaseUrl + id);
+      parsedRecipeDetails = freshRecipeDetails.json();
       console.log(parsedRecipeDetails, "should be object not promise");
-      // setting local state
       setRecipeDetails(parsedRecipeDetails);
     }
-  };
 
   return (
     <Card style={{ width: "100%" }}>
@@ -71,4 +64,4 @@ export const RecipeComponent = props => {
       </Card.Body>
     </Card>
   );
-};
+}}
