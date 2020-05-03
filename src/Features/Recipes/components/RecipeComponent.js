@@ -12,10 +12,11 @@ const recipeDetailBaseUrl = "http://localhost:5000/api/recipeDetail/?id=";
 
 // refactoring for hooks as well as general upkeep.
 export const RecipeComponent = props => {
+  console.log("Recipe Component");
   // const dispatch = useDispatch();
   const [showDetails, toggleShowDetails] = useState(false);
   const [recipeDetails, setRecipeDetails] = useState(null);
-  var recipe = props.recipe;
+  let recipe = props.recipe;
 
   const toggleRecipeDetails = () => {
     toggleShowDetails(!showDetails);
@@ -24,12 +25,14 @@ export const RecipeComponent = props => {
   const fetchRecipeDetails = async id => {
     if (!recipeDetails) {
       var freshRecipeDetails = await fetch(recipeDetailBaseUrl + id);
-      parsedRecipeDetails = freshRecipeDetails.json();
+      var parsedRecipeDetails = await freshRecipeDetails.json();
       console.log(parsedRecipeDetails, "should be object not promise");
       setRecipeDetails(parsedRecipeDetails);
     }
+  }
 
   return (
+    recipe != null ?
     <Card style={{ width: "100%" }}>
       <Card.Img variant="top" src={recipe.image} />
       <Card.Body>
@@ -62,6 +65,7 @@ export const RecipeComponent = props => {
           />
         )}
       </Card.Body>
-    </Card>
+    </Card> :
+    "nothing to see here"
   );
-}}
+}
