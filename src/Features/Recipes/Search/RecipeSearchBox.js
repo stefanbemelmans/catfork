@@ -11,8 +11,10 @@ import Container from "react-bootstrap/Container";
 const ingredientSearchBaseUrl = "http://localhost:5000/api/recipeSearch/?ingredients="
 export const RecipeSearchBox = () => {
   const dispatch = useDispatch();
+  let recipeList = useSelector(state => state.numOfRecipes);
   const [searchTerms, setSearchTerms] = useState("peppers, onions");
   const [numOfRecipes, setNumOfRecipes] = useState(10);
+  var numberOfRecipesEndUrl = "&numOfRecipes=";
   // const separator = "%252C";
 
   const GetRecipes = async (ingredients) => {
@@ -23,8 +25,9 @@ export const RecipeSearchBox = () => {
     console.log(ingredients, "param");
     console.log(cleanedIngredientArray);
     var cleanedIngredientString = cleanedIngredientArray.toString();
-    var recipeSearchString = ingredientSearchBaseUrl + cleanedIngredientString;
-    console.log(recipeSearchString, "should be url with ingredients");
+    var numOfRecipes = useState(state => state.numOfRecipes);
+    var recipeSearchString = ingredientSearchBaseUrl + cleanedIngredientString + numberOfRecipesEndUrl + numOfRecipes;
+    console.log(recipeSearchString, "should be url with ingredients and number");
     dispatch({
       type: recipeActions.SET_SEARCH_TERMS,
       searchTerms: cleanedIngredientString
