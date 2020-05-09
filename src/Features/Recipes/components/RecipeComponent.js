@@ -4,17 +4,19 @@
 import React, { useState, useEffect } from "react";
 import { RecipeDetails } from "./RecipeDetails";
 // import { useDispatch, useSelector } from "react-redux";
-import { getRecipeDetailsUrlFactory, mashapeHeader } from "../constants";
+import { getRecipeDetailsUrlFactory } from "../constants";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 // import * as recipeActions from "../recipeActionTypes";
-
+// const recipeDetailBaseUrl = "http://localhost:5000/api/recipeDetail/?id=";
+import recipeDetailUrlBuilder from "../constants"
 // refactoring for hooks as well as general upkeep.
 export const RecipeComponent = props => {
+  console.log("Recipe Component");
   // const dispatch = useDispatch();
   const [showDetails, toggleShowDetails] = useState(false);
   const [recipeDetails, setRecipeDetails] = useState(null);
-  var recipe = props.recipe;
+  let recipe = props.recipe;
 
   const toggleRecipeDetails = () => {
     toggleShowDetails(!showDetails);
@@ -22,21 +24,15 @@ export const RecipeComponent = props => {
 
   const fetchRecipeDetails = async id => {
     if (!recipeDetails) {
-      // Get the search string from the factory
-      var RecipeDetailsSearchString = getRecipeDetailsUrlFactory(id);
-      // Get the details
-      var recipeDetails = await fetch(RecipeDetailsSearchString, {
-        headers: mashapeHeader
-      });
-      // Parse the details out of the Promise
-      const parsedRecipeDetails = await recipeDetails.json();
+      var freshRecipeDetails = await fetch(recipeDetailUrlBuilder(id));
+      var parsedRecipeDetails = await freshRecipeDetails.json();
       console.log(parsedRecipeDetails, "should be object not promise");
-      // setting local state
       setRecipeDetails(parsedRecipeDetails);
     }
-  };
+  }
 
   return (
+    recipe != null ?
     <Card style={{ width: "100%" }}>
       <Card.Img variant="top" src={recipe.image} />
       <Card.Body>
@@ -69,6 +65,7 @@ export const RecipeComponent = props => {
           />
         )}
       </Card.Body>
-    </Card>
+    </Card> :
+    "nothing to see here"
   );
-};
+}

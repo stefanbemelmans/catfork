@@ -2,50 +2,54 @@
 /* eslint-disable no-console */
 import React, { useState } from "react";
 import * as recipeActions from "../recipeActionTypes";
-import { useDispatch } from "react-redux";
-import { recipeSearchUrlFactory, mashapeHeader } from "../constants.js";
+import { useDispatch, useSelector } from "react-redux";
+import { recipeSearchUrlFactory } from "../constants.js";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
+const ingredientSearchUrl = "https://servercat.herokuapp.com/api/recipeSearch/?ingredients=";
+// const ingredientSearchBaseUrl = "http://localhost:5000/api/recipeSearch/?ingredients="
 
 export const RecipeSearchBox = () => {
   const dispatch = useDispatch();
+  let recipeList = useSelector(state => state.numOfRecipes);
   const [searchTerms, setSearchTerms] = useState("peppers, onions");
-  const [numOfRecipes, setNumOfRecipes] = useState(10);
 
-  const GetRecipes = async (ingredients, numberOfRecipes) => {
-    var cleanedIngredientString = ingredients
+  var numOfRecipes = 10;
+
+  const setNumOfRecipes = (number) => numOfRecipes = number;
+
+  const GetRecipes = async (ingredients) => {
+    var cleanedIngredientArray = ingredients
       .split(",")
-      .map(x => x.trim())
-      .toString();
+      .map(x => x.trim());
 
-    // Setting search ingredients after cleaning
-    // TODO: add searchTerm validation 
+    console.log(ingredients, "param");
+    console.log(cleanedIngredientArray);
+    var cleanedIngredientString = cleanedIngredientArray.toString();
+// When sending it to heroku I may be able to send it as an array
     
     dispatch({
       type: recipeActions.SET_SEARCH_TERMS,
       searchTerms: cleanedIngredientString
     });
-    // Sets the flag in state that recipe fetch has started
     dispatch({
       type: recipeActions.FETCH_RECIPES
     });
 
-    var searchString = recipeSearchUrlFactory(
-      cleanedIngredientString,
-      numberOfRecipes
-    );
+    try {
+      var recipes = await fetch(ingredientSearchUrl + cleanedIngredientString);
+      var parsedRecipes = await recipes.json();
+      console.log(parsedRecipes, "recipes back from server, woohoo!");
+      dispatch({
+        type: recipeActions.SET_RECIPES,
+        searchResults: parsedRecipes
+      });
+    } catch (error) {
+      console.log("Error: ", error)
+    }
+  }
 
-    const recipes = await fetch(searchString, {
-      headers: mashapeHeader
-    });
-    const parsedRecipes = await recipes.json();
-    // sets recipes in redux
-    dispatch({
-      type: recipeActions.SET_RECIPES,
-      searchResults: parsedRecipes
-    });
-  };
   return (
     <Container>
       <Row>
@@ -75,23 +79,18 @@ export const RecipeSearchBox = () => {
           </div>
         </Col>
         <Col sm={4} xs={12} className="mb-2">
-          <div className="w-100 text-center">
-            <button
-              type="submit"
-              title="Search"
+          <div style={{height:"10rem"}} className="d-flex flex-column h-100 w-100 text-center justify-content-between">
+            <div className="bg-primary d-flex m-2 h-50 justify-content-center align-items-center"
               onClick={() => GetRecipes(searchTerms, numOfRecipes)}
             >
               Search!
-            </button>
-            <button
-              type="reset"
-              title="Clear Results"
-              // TODO: finish clear search results action
-              onClick={() => dispatch({type: recipeActions.CLEAR_SEARCH}) }
-              >Clear Results</button>
+            </div>
+            <div className="bg-info"
+              onClick={() => dispatch({ type: recipeActions.CLEAR_SEARCH })}
+            >Clear Results</div>
           </div>
         </Col>
       </Row>
     </Container>
   );
-};
+}

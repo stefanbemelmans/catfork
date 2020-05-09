@@ -9,22 +9,26 @@ import { RecipeList } from "./Features/Recipes/components/RecipeList";
 // import firebaseConfig from "./Features/Firebase/firebaseConfig";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useDispatch, useSelector } from "react-redux";
 
 // firebase.initializeApp(firebaseConfig);
-
 export const App = () => {
+  let recipeList = useSelector(state => state.searchResults);
   return (
     // TODO: Cats eating salami background marquee, have the images
     <div className="app container-fluid justify-content-center">
-    
+
       <CatForkHeader />
 
       <CatPicComponent />
 
       <RecipeSearchBox />
-      <div className="container-fluid">
-        <RecipeList />
-      </div>
+      {
+        recipeList &&
+        <div className="row">
+          <RecipeList recipeList={recipeList} />
+        </div>
+      }
     </div>
   );
 };

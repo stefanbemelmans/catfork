@@ -1,29 +1,12 @@
 /* eslint-disable no-undef */
-const dotenv = require("dotenv");
-dotenv.config();
 
-// Broke the URL's into pieces to easier insert the url vars. 
+const ingredientProductionSearchUrl = "https://servercat.herokuapp.com/api/recipeSearch/?ingredients=";
+// const ingredientSearchBaseUrl = "http://localhost:5000/api/recipeSearch/?ingredients="
 
-const getRecipeDetailsBaseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/";
-const getRecipeDetailsEndUrl = "/information?includeNutrition=false";
+const recipeDetailEndpoint ="https://servercat.herokuapp.com/api/recipeDetail/?id=";
 
-const recipeSearchBaseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=";
-const recipeSearchMidUrl = "&limitLicense=false&number=" 
-const recipeSearchEndUrl = "&ranking=1";
+const recipeDetailsProductionUrl = (recipeId) => recipeDetailEndpoint + recipeId;
 
-export const mashapeHeader = {
-    "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-    "x-rapidapi-Key": "YmReyxlVdYmshU5Dlyo9XYbBPZtep1KJPXujsnt4Hiueq8H23o"
-}
+export default recipeDetailsProductionUrl
 
-// process.env.MASHAPE_KEY
 
-// "X-Mashape-Key": "YmReyxlVdYmshU5Dlyo9XYbBPZtep1KJPXujsnt4Hiueq8H23o"}
-
-// process.env.MASHAPE_KEY}
-
-// 
-
-// Helper functions to return the search strings
-export const recipeSearchUrlFactory = (ingredientString, numOfRecipes) => recipeSearchBaseUrl + ingredientString + recipeSearchMidUrl + numOfRecipes + recipeSearchEndUrl
-export const getRecipeDetailsUrlFactory = (recipeId) => getRecipeDetailsBaseUrl + recipeId + getRecipeDetailsEndUrl
