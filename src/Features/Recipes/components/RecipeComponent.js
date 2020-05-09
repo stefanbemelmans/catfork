@@ -8,8 +8,8 @@ import { getRecipeDetailsUrlFactory } from "../constants";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 // import * as recipeActions from "../recipeActionTypes";
-const recipeDetailBaseUrl = "http://localhost:5000/api/recipeDetail/?id=";
-
+// const recipeDetailBaseUrl = "http://localhost:5000/api/recipeDetail/?id=";
+import recipeDetailUrlBuilder from "../constants"
 // refactoring for hooks as well as general upkeep.
 export const RecipeComponent = props => {
   console.log("Recipe Component");
@@ -24,7 +24,7 @@ export const RecipeComponent = props => {
 
   const fetchRecipeDetails = async id => {
     if (!recipeDetails) {
-      var freshRecipeDetails = await fetch(recipeDetailBaseUrl + id);
+      var freshRecipeDetails = await fetch(recipeDetailUrlBuilder(id));
       var parsedRecipeDetails = await freshRecipeDetails.json();
       console.log(parsedRecipeDetails, "should be object not promise");
       setRecipeDetails(parsedRecipeDetails);

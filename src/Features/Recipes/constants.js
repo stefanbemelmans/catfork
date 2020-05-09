@@ -1,20 +1,12 @@
 /* eslint-disable no-undef */
-const dotenv = require("dotenv");
-dotenv.config();
 
-// Broke the URL's into pieces to easier insert the url vars. 
+const ingredientProductionSearchUrl = "https://servercat.herokuapp.com/api/recipeSearch/?ingredients=";
+// const ingredientSearchBaseUrl = "http://localhost:5000/api/recipeSearch/?ingredients="
 
-const getRecipeDetailsBaseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/";
-const getRecipeDetailsEndUrl = "/information?includeNutrition=false";
+const recipeDetailEndpoint ="https://servercat.herokuapp.com/api/recipeDetail/?id=";
 
-const recipeSearchBaseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ignorePantry=false&ingredients=";
-// const recipeSearchMidUrl = "&ranking=1&ignorePantry=true&ingredients=" 
+const recipeDetailsProductionUrl = (recipeId) => recipeDetailEndpoint + recipeId;
 
-  
-
-export const recipeSearchUrlFactory = (ingredientString) => recipeSearchBaseUrl + ingredientString;
-export const getRecipeDetailsUrlFactory = (recipeId) => getRecipeDetailsBaseUrl + recipeId + getRecipeDetailsEndUrl;
-
-
+export default recipeDetailsProductionUrl
 
 
