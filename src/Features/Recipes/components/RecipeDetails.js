@@ -1,6 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import Button from "react-bootstrap/Button";
+
 export const RecipeDetails = props => {
   //  losing the extended ingredients, getting the method
   if (!props) {

@@ -2,8 +2,7 @@
 /* eslint-disable no-console */
 import React, { useState } from "react";
 import * as recipeActions from "../recipeActionTypes";
-import { useDispatch, useSelector } from "react-redux";
-import { recipeSearchUrlFactory } from "../constants.js";
+import { useDispatch } from "react-redux";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";

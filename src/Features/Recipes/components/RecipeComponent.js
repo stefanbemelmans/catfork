@@ -1,19 +1,14 @@
 /* eslint-disable no-console */
 /* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { RecipeDetails } from "./RecipeDetails";
 // import { useDispatch, useSelector } from "react-redux";
-import { getRecipeDetailsUrlFactory } from "../constants";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-// import * as recipeActions from "../recipeActionTypes";
-// const recipeDetailBaseUrl = "http://localhost:5000/api/recipeDetail/?id=";
 import recipeDetailUrlBuilder from "../constants"
-// refactoring for hooks as well as general upkeep.
 export const RecipeComponent = props => {
   console.log("Recipe Component");
-  // const dispatch = useDispatch();
   const [showDetails, toggleShowDetails] = useState(false);
   const [recipeDetails, setRecipeDetails] = useState(null);
   let recipe = props.recipe;
