@@ -4,9 +4,6 @@ import Image from "react-bootstrap/Image";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-import Axios from "axios";
-const dotenv = require("dotenv");
-dotenv.config();
 
 // const serverCatString = "https://shielded-eyrie-66484.herokuapp.com/api/getCat"
 const serverCatString = "https://servercat.herokuapp.com/api/getCat"
@@ -38,7 +35,10 @@ export const CatPicComponent = () => {
 // Pass in the setCatPicUrl Hook
 
 async function getCatPic(setCatPicUrl) {
-  var response = await Axios(serverCatString)
-  // console.log(response, "response from serverCat")
-  setCatPicUrl(response.data);
+  var response = await fetch(serverCatString);
+  console.log(response, "response from serverCat");
+  var catuUrl = await response.text();
+  
+  console.log(catuUrl, "response from serverCat");
+  setCatPicUrl(catuUrl);
 }

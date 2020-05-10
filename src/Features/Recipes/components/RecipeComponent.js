@@ -33,7 +33,7 @@ export const RecipeComponent = props => {
 
   return (
     recipe != null ?
-    <Card style={{ width: "100%" }}>
+    <Card style={{ width: "100%", height: "100%" }}>
       <Card.Img variant="top" src={recipe.image} />
       <Card.Body>
         <Card.Title>{recipe.title}</Card.Title>
@@ -41,7 +41,7 @@ export const RecipeComponent = props => {
         <Card.Text>
           Missing Ingredients: {recipe.missedIngredientCount}
         </Card.Text>
-        <Card.Text>Likes: {recipe.likes}</Card.Text>
+        <Card.Text className="mb-2">Likes: {recipe.likes}</Card.Text>
 
         {!recipeDetails ? (
           <Button
