@@ -17,7 +17,6 @@ export const CatForkHeader = () => {
         And {" "}
         <a href={SpoonacularLink}>Spoonacular </a>
       </h3>
-      <h3>We're Updating so things are under construction.</h3>
       <a href={CatForkFb}> Say HI On the FB </a> --
       <a href={CatGram}>Or At the Gram</a>
 
